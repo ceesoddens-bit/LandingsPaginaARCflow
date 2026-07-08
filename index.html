@@ -105,8 +105,21 @@
 
     <!-- Hero Section -->
     <section class="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Gradients & Blobs -->
-        <div class="absolute inset-0 bg-[#F8FAFC] overflow-hidden pointer-events-none">
+        <!-- Video Background -->
+        <div class="absolute top-0 left-0 w-full h-full scale-105 animate-float overflow-hidden pointer-events-none" style="animation-duration: 20s;">
+            <iframe src="https://player.vimeo.com/video/1151192261?background=1&autoplay=1&loop=1&byline=0&title=0" 
+                    class="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2" 
+                    frameborder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- White washed-out overlay -->
+        <div class="absolute inset-0 bg-white/90 z-10"></div>
+
+        <!-- Background Gradients & Blobs on top of washed-out video -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-10">
             <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-arc-teal/5 rounded-full blur-[120px]"></div>
             <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-arc-sage/8 rounded-full blur-[120px]"></div>
             <div class="absolute top-[30%] right-[20%] w-[30%] h-[30%] bg-arc-sand/5 rounded-full blur-[100px]"></div>
