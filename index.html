@@ -57,68 +57,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'arc-blue': '#0A1F44',
-                        'arc-teal': '#0F626A',
-                        'arc-teal-hover': '#0C5259',
-                        'arc-sand': '#B58E6F',
-                        'arc-sage': '#5E8E7C',
-                        'glass-bg': 'rgba(255, 255, 255, 0.1)',
-                        'glass-border': 'rgba(255, 255, 255, 0.2)',
-                    },
-                    fontFamily: {
-                        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        body: ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #0F626A;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #0C5259;
-        }
-        /* Custom Logo Font Adjustments */
-        .logo-arc {
-            letter-spacing: -0.1em;
-            margin-right: -0.05em; /* Compensate for tracking */
-        }
-        .logo-flow {
-            letter-spacing: 0.35em;
-            margin-right: -0.35em; /* Center alignment fix */
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="font-body text-gray-800 antialiased bg-gray-50 selection:bg-arc-teal selection:text-white overflow-x-hidden">
@@ -169,7 +108,6 @@
         <div class="absolute inset-0 overflow-hidden pointer-events-none z-10">
             <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-arc-teal/5 rounded-full blur-[120px]"></div>
             <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-arc-sage/8 rounded-full blur-[120px]"></div>
-            <div class="absolute top-[30%] right-[20%] w-[30%] h-[30%] bg-arc-sand/5 rounded-full blur-[100px]"></div>
         </div>
 
         <!-- Content inside hero container -->
@@ -210,8 +148,13 @@
     </section>
 
     <!-- Methode Sectie -->
-    <section id="werkwijze" class="py-32 bg-gray-50 relative border-t border-gray-100">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section id="werkwijze" class="py-32 bg-gray-50 relative border-t border-gray-100 overflow-hidden">
+        <!-- Boogmotief: de boog van chaos naar flow, ingebakken in de naam ARC -->
+        <svg id="arc-motif" class="absolute inset-0 w-full h-full pointer-events-none opacity-0 transition-opacity duration-700 ease-out" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+            <path id="arc-motif-path" d="M 60 520 Q 500 -40, 940 320" fill="none" stroke="#0F626A" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <span class="inline-block text-arc-teal font-semibold uppercase tracking-wider text-sm mb-4">#werkwijze</span>
             <h2 class="font-heading font-black text-4xl md:text-5xl text-arc-blue mb-6 tracking-tight">Hoe we werken</h2>
             <p class="text-gray-500 text-lg leading-relaxed mb-16 max-w-2xl mx-auto">We zijn met drie mensen: een ontwerper, een communicatiespecialist en een bouwer. Geen bureau, geen laag managers ertussen.</p>
@@ -258,8 +201,8 @@
     <!-- Producten Sectie -->
     <section id="producten" class="py-32 bg-gray-50 relative">
         <!-- Decorative background blob -->
-        <div class="absolute top-0 right-0 -mt-20 w-96 h-96 bg-arc-teal rounded-full mix-blend-multiply filter blur-[128px] opacity-20"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-arc-sage rounded-full mix-blend-multiply filter blur-[128px] opacity-10"></div>
+        <div class="absolute top-0 right-0 -mt-20 w-96 h-96 bg-arc-teal rounded-full mix-blend-multiply filter blur-[128px] opacity-10"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-arc-sage rounded-full mix-blend-multiply filter blur-[128px] opacity-5"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
@@ -487,6 +430,26 @@
     </footer>
 
     <script>
+        // Boogmotief: teken de curve zodra de Methode-sectie in beeld scrolt
+        const arcMotif = document.getElementById('arc-motif');
+        const arcMotifPath = document.getElementById('arc-motif-path');
+        if (arcMotif && arcMotifPath && 'IntersectionObserver' in window) {
+            const length = arcMotifPath.getTotalLength();
+            arcMotifPath.style.strokeDasharray = length;
+            arcMotifPath.style.strokeDashoffset = length;
+            const arcObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        arcMotif.style.opacity = '0.12';
+                        arcMotifPath.style.transition = 'stroke-dashoffset 1.8s ease-out';
+                        arcMotifPath.style.strokeDashoffset = '0';
+                        arcObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 });
+            arcObserver.observe(document.getElementById('werkwijze'));
+        }
+
         const contactForm = document.getElementById('contact-form');
         if (contactForm) {
             contactForm.addEventListener('submit', async function (e) {
