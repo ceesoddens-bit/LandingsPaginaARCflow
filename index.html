@@ -204,20 +204,20 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="font-heading font-black text-4xl md:text-5xl text-arc-blue mb-6 tracking-tight">Eén eigen product.<br/>En bewijs dat maatwerk werkt.</h2>
-                <p class="text-xl text-gray-500 max-w-2xl mx-auto font-light">Dit bouwen we: een eigen product, en maatwerk voor klanten die vastliepen.</p>
+                <h2 class="font-heading font-black text-4xl md:text-5xl text-arc-blue mb-6 tracking-tight">Onze producten</h2>
+                <p class="text-xl text-gray-500 max-w-2xl mx-auto font-light">Drie voorbeelden van wat we bouwen: software, websites en AI-oplossingen.</p>
             </div>
 
-            <!-- Ons product -->
-            <div class="mb-20">
-                <span class="inline-block text-arc-teal font-semibold uppercase tracking-wider text-sm mb-6">Ons product</span>
-
-                <!-- ARC BOOKING CARD (uitgelicht) -->
-                <div class="group bg-white rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all duration-500 relative overflow-hidden border-2 border-arc-teal/20 max-w-2xl">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+                <!-- ARC BOOKING CARD -->
+                <div class="group bg-white rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden border-2 border-arc-teal/20">
                     <div class="absolute inset-0 bg-gradient-to-br from-arc-teal to-blue-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
                     <div class="bg-white rounded-[23px] p-8 md:p-10 h-full flex flex-col relative z-10">
-                        <div class="w-16 h-16 rounded-[18px] bg-arc-teal flex items-center justify-center mb-8 shadow-md">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <div class="flex items-start justify-between mb-8">
+                            <div class="w-16 h-16 rounded-[18px] bg-arc-teal flex items-center justify-center shadow-md">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-arc-teal mt-2">Software</span>
                         </div>
                         <h3 class="font-heading font-black text-3xl text-gray-900 mb-2 tracking-tight">
                             ARC Booking
@@ -235,61 +235,59 @@
                         </a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Uit de praktijk -->
-            <div>
-                <span class="inline-block text-arc-teal font-semibold uppercase tracking-wider text-sm mb-4">Uit de praktijk</span>
-                <p class="text-gray-500 mb-8 max-w-2xl">Twee voorbeelden van maatwerk dat we voor klanten bouwden.</p>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-                    <!-- CRIMESTATION CARD -->
-                    <!-- TODO: bezoekersaantal CrimeStation verifiëren, 10.000/maand is een placeholder -->
-                    <div id="crimestation" class="group bg-white rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-rose-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-                        <div class="bg-white rounded-[23px] p-8 md:p-10 h-full flex flex-col relative z-10">
-                            <div class="w-16 h-16 rounded-[18px] bg-arc-teal flex items-center justify-center mb-8 shadow-md">
+                <!-- CRIMESTATION CARD -->
+                <!-- TODO: bezoekersaantal CrimeStation verifiëren, 10.000/maand is een placeholder -->
+                <div id="crimestation" class="group bg-white rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-rose-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+                    <div class="bg-white rounded-[23px] p-8 md:p-10 h-full flex flex-col relative z-10">
+                        <div class="flex items-start justify-between mb-8">
+                            <div class="w-16 h-16 rounded-[18px] bg-arc-teal flex items-center justify-center shadow-md">
                                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
                             </div>
-                            <h3 class="font-heading font-black text-3xl text-gray-900 mb-2 tracking-tight">
-                                CrimeStation
-                            </h3>
-                            <span class="inline-block self-start py-1 px-2.5 rounded-full bg-red-50 text-red-700 border border-red-100 text-xs font-semibold uppercase tracking-wider mb-6">
-                                Klantproject
-                            </span>
-                            <p class="text-gray-500 mb-10 flex-grow text-lg leading-relaxed">
-                                Het platform voor onafhankelijke misdaadjournalistiek, met 10.000 bezoekers per maand. Snel, betrouwbaar en gebouwd om diepgravend werk te ondersteunen.
-                            </p>
-                            <a href="https://www.crimestation.nl" target="_blank"
-                                class="inline-flex items-center justify-center w-full bg-arc-teal hover:bg-arc-teal-hover text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 shadow-md group-hover:shadow-lg gap-2">
-                                Bezoek website
-                                <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7-7m7-7H3"></path></svg>
-                            </a>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-red-600 mt-2">Website</span>
                         </div>
+                        <h3 class="font-heading font-black text-3xl text-gray-900 mb-2 tracking-tight">
+                            CrimeStation
+                        </h3>
+                        <span class="inline-block self-start py-1 px-2.5 rounded-full bg-red-50 text-red-700 border border-red-100 text-xs font-semibold uppercase tracking-wider mb-6">
+                            Klantproject
+                        </span>
+                        <p class="text-gray-500 mb-10 flex-grow text-lg leading-relaxed">
+                            Het platform voor onafhankelijke misdaadjournalistiek, met 10.000 bezoekers per maand. Snel, betrouwbaar en gebouwd om diepgravend werk te ondersteunen.
+                        </p>
+                        <a href="https://www.crimestation.nl" target="_blank"
+                            class="inline-flex items-center justify-center w-full bg-arc-teal hover:bg-arc-teal-hover text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 shadow-md group-hover:shadow-lg gap-2">
+                            Bezoek website
+                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7-7m7-7H3"></path></svg>
+                        </a>
                     </div>
+                </div>
 
-                    <!-- DE WOONWENS MAKELAAR CARD -->
-                    <div id="woonwens" class="group bg-white rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-                        <div class="bg-white rounded-[23px] p-8 md:p-10 h-full flex flex-col relative z-10">
-                            <div class="w-16 h-16 rounded-[18px] bg-arc-teal flex items-center justify-center mb-8 shadow-md">
+                <!-- DE WOONWENS MAKELAAR CARD -->
+                <div id="woonwens" class="group bg-white rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+                    <div class="bg-white rounded-[23px] p-8 md:p-10 h-full flex flex-col relative z-10">
+                        <div class="flex items-start justify-between mb-8">
+                            <div class="w-16 h-16 rounded-[18px] bg-arc-teal flex items-center justify-center shadow-md">
                                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                             </div>
-                            <h3 class="font-heading font-black text-3xl text-gray-900 mb-2 tracking-tight">
-                                Workflow automatisering
-                            </h3>
-                            <span class="inline-block self-start py-1 px-2.5 rounded-full bg-amber-50 text-amber-700 border border-amber-100 text-xs font-semibold uppercase tracking-wider mb-6">
-                                Klantproject
-                            </span>
-                            <p class="text-gray-500 mb-10 flex-grow text-lg leading-relaxed">
-                                Een systeem op maat dat het dagelijkse handwerk van een makelaarskantoor overneemt. Twee uur per dag tijdwinst, direct terug te zien in persoonlijk klantcontact.
-                            </p>
-                            <a href="https://woonwensmakelaar.nl" target="_blank"
-                                class="inline-flex items-center justify-center w-full bg-arc-teal hover:bg-arc-teal-hover text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 shadow-md group-hover:shadow-lg gap-2">
-                                Bezoek website
-                                <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7-7m7-7H3"></path></svg>
-                            </a>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-amber-600 mt-2">AI-oplossingen</span>
                         </div>
+                        <h3 class="font-heading font-black text-3xl text-gray-900 mb-2 tracking-tight">
+                            WoonWens Makelaar
+                        </h3>
+                        <span class="inline-block self-start py-1 px-2.5 rounded-full bg-amber-50 text-amber-700 border border-amber-100 text-xs font-semibold uppercase tracking-wider mb-6">
+                            Klantproject
+                        </span>
+                        <p class="text-gray-500 mb-10 flex-grow text-lg leading-relaxed">
+                            AI-agenten nemen een groot deel van het dagelijkse handwerk over bij dit makelaarskantoor. Twee uur per dag tijdwinst, direct terug te zien in persoonlijk klantcontact.
+                        </p>
+                        <a href="https://woonwensmakelaar.nl" target="_blank"
+                            class="inline-flex items-center justify-center w-full bg-arc-teal hover:bg-arc-teal-hover text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 shadow-md group-hover:shadow-lg gap-2">
+                            Bezoek website
+                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7-7m7-7H3"></path></svg>
+                        </a>
                     </div>
                 </div>
             </div>
