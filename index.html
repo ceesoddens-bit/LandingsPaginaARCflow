@@ -336,46 +336,31 @@
 
     <!-- Contact Sectie -->
     <section id="contact" class="py-32 bg-white relative border-t border-gray-100">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="font-heading font-black text-4xl md:text-5xl text-arc-blue mb-6 tracking-tight">Kom een keer praten</h2>
-            <p class="text-xl text-gray-500 max-w-2xl mx-auto font-light mb-16">We beginnen met luisteren. Kies wat het beste bij je past.</p>
+            <p class="text-xl text-gray-500 max-w-2xl mx-auto font-light mb-16">We beginnen met luisteren. Vertel kort waar je tegenaan loopt.</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                <!-- Direct inplannen -->
-                <div class="bg-gray-50 rounded-2xl p-8 flex flex-col">
-                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">Direct inplannen</h3>
-                    <p class="text-gray-500 leading-relaxed mb-8 flex-grow">Weet je al dat je wilt praten? Plan direct een moment in onze agenda.</p>
-                    <!-- TODO: vervang door de echte Calendly/Cal.com-link van ARC Flow -->
-                    <a href="https://calendly.com/arcflow/gesprek" target="_blank" rel="noopener"
+            <div class="bg-gray-50 rounded-2xl p-8 text-left">
+                <!-- TODO: vervang PLACEHOLDER_FORM_ID door het echte Formspree form-ID -->
+                <form id="contact-form" action="https://formspree.io/f/PLACEHOLDER_FORM_ID" method="POST" class="flex flex-col gap-4">
+                    <input type="text" name="naam" placeholder="Naam" required
+                        class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal">
+                    <input type="text" name="bedrijf" placeholder="Bedrijf (optioneel)"
+                        class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal">
+                    <input type="email" name="email" placeholder="E-mailadres" required
+                        class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal">
+                    <input type="tel" name="telefoon" placeholder="Telefoonnummer (optioneel)"
+                        class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal">
+                    <textarea name="situatie" placeholder="Waar loopt het vast in je bedrijf?" required rows="3"
+                        class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal"></textarea>
+                    <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+                    <button type="submit"
                         class="inline-flex items-center justify-center bg-arc-teal text-white px-6 py-4 rounded-xl font-bold hover:bg-arc-teal-hover transition-all duration-300 shadow-md">
-                        Plan een gesprek
-                    </a>
-                </div>
-
-                <!-- Formulier -->
-                <div class="bg-gray-50 rounded-2xl p-8 flex flex-col">
-                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">Liever eerst iets toelichten?</h3>
-                    <!-- TODO: vervang PLACEHOLDER_FORM_ID door het echte Formspree form-ID -->
-                    <form id="contact-form" action="https://formspree.io/f/PLACEHOLDER_FORM_ID" method="POST" class="flex flex-col gap-4">
-                        <input type="text" name="naam" placeholder="Naam" required
-                            class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal">
-                        <input type="text" name="bedrijf" placeholder="Bedrijf (optioneel)"
-                            class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal">
-                        <input type="email" name="email" placeholder="E-mailadres" required
-                            class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal">
-                        <input type="tel" name="telefoon" placeholder="Telefoonnummer (optioneel)"
-                            class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal">
-                        <textarea name="situatie" placeholder="Waar loopt het vast in je bedrijf?" required rows="3"
-                            class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal"></textarea>
-                        <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
-                        <button type="submit"
-                            class="inline-flex items-center justify-center bg-arc-teal text-white px-6 py-4 rounded-xl font-bold hover:bg-arc-teal-hover transition-all duration-300 shadow-md">
-                            Verstuur je aanvraag
-                        </button>
-                        <p class="text-xs text-gray-600 mt-2">Door dit formulier te versturen ga je akkoord met ons <a href="privacy.html" class="underline text-gray-600 hover:text-arc-teal">privacybeleid</a>.</p>
-                    </form>
-                    <p id="contact-form-success" class="hidden text-arc-teal font-semibold mt-4">Bedankt, we nemen binnen 1 werkdag contact op.</p>
-                </div>
+                        Verstuur je aanvraag
+                    </button>
+                    <p class="text-xs text-gray-600 mt-2">Door dit formulier te versturen ga je akkoord met ons <a href="privacy.html" class="underline text-gray-600 hover:text-arc-teal">privacybeleid</a>.</p>
+                </form>
+                <p id="contact-form-success" class="hidden text-arc-teal font-semibold mt-4">Bedankt, we nemen binnen 1 werkdag contact op.</p>
             </div>
         </div>
     </section>
