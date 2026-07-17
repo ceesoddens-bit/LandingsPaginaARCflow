@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+    --color-arc-blue: #0A1F44;
+    --color-arc-teal: #0F626A;
+    --color-arc-teal-hover: #0C5259;
+    --color-arc-sand: #B58E6F;
+    --color-arc-sage: #5E8E7C;
+    --font-heading: "Plus Jakarta Sans", sans-serif;
+    --font-body: Inter, sans-serif;
+    --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+    --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #0F626A;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #0C5259;
+}
+
+/* Custom Logo Font Adjustments */
+.logo-arc {
+    letter-spacing: -0.1em;
+    margin-right: -0.05em;
+}
+.logo-flow {
+    letter-spacing: 0.35em;
+    margin-right: -0.35em;
+}
