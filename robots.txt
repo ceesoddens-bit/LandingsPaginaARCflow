@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arcflow.nl/sitemap.xml
+Sitemap: https://arc-flow.nl/sitemap.xml
