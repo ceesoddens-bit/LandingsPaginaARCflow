@@ -56,3 +56,383 @@
     letter-spacing: 0.35em;
     margin-right: -0.35em;
 }
+
+/* ==========================================================================
+   ARC FLOW x EVENTBEDS MOTION & 3D STYLES
+   ========================================================================== */
+
+#site-header.scrolled {
+    background-color: rgba(5, 11, 20, 0.88) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5) !important;
+}
+
+@keyframes floatSlowA {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(0.5deg);
+    }
+}
+
+@keyframes floatSlowB {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(10px) rotate(-0.5deg);
+    }
+}
+
+.animate-float-a {
+    animation: floatSlowA 6.5s ease-in-out infinite;
+}
+
+.animate-float-b {
+    animation: floatSlowB 8s ease-in-out infinite;
+}
+
+.reveal-word {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.18);
+    filter: blur(0.4px);
+    transform: translateY(3px);
+    transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                text-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-right: 0.28em;
+    will-change: color, transform, filter;
+}
+
+.reveal-word.word-active {
+    color: #FFFFFF !important;
+    filter: blur(0px) !important;
+    transform: translateY(0) !important;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.35) !important;
+}
+
+.reveal-word.word-active[data-accent="teal"] {
+    color: #14b8a6 !important;
+    text-shadow: 0 0 25px rgba(20, 184, 166, 0.6) !important;
+}
+
+.reveal-word.word-active[data-accent="sand"] {
+    color: #B58E6F !important;
+    text-shadow: 0 0 25px rgba(181, 142, 111, 0.6) !important;
+}
+
+.reveal-word.word-active[data-accent="sage"] {
+    color: #5E8E7C !important;
+    text-shadow: 0 0 25px rgba(94, 142, 124, 0.6) !important;
+}
+
+.perspective-container {
+    perspective: 1400px;
+}
+
+.tilted-card {
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+@media (min-width: 1024px) {
+    .tilted-card.card-left {
+        transform: rotateY(6deg) rotateX(3deg) translateZ(0);
+    }
+    .tilted-card.card-center {
+        transform: translateY(-8px) translateZ(20px);
+    }
+    .tilted-card.card-right {
+        transform: rotateY(-6deg) rotateX(3deg) translateZ(0);
+    }
+
+    .tilted-card:hover {
+        transform: perspective(1400px) rotateX(0deg) rotateY(0deg) translateZ(35px) translateY(-12px) scale(1.02) !important;
+        box-shadow: 0 30px 60px -15px rgba(5, 11, 20, 0.9), 0 0 35px rgba(15, 98, 106, 0.35) !important;
+        z-index: 30;
+    }
+}
+
+.custom-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 9999px;
+    background: #1E293B;
+    outline: none;
+}
+
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #0F626A;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 15px rgba(15, 98, 106, 0.8);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.custom-slider::-webkit-slider-thumb:hover,
+.custom-slider::-webkit-slider-thumb:active {
+    transform: scale(1.25);
+    background: #0C5259;
+}
+
+.custom-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #0F626A;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 15px rgba(15, 98, 106, 0.8);
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   EVENTBEDS PARALLAX & SECTION RHYTHM ARCHITECTURE
+   ========================================================================== */
+
+/* Hardware Compositing */
+[data-parallax-speed],
+[data-mouse-depth],
+.card-path-track,
+.process-step-card,
+.organic-review-card {
+    will-change: transform;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* 1. Mega Display Typography */
+.font-display-mega {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+}
+
+/* 2. Hero Interactive Floating Badges (Mouse + Scroll Sync) */
+.hero-badge-pin {
+    position: absolute;
+    z-index: 25;
+    pointer-events: auto;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.15s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.hero-badge-pin:hover {
+    box-shadow: 0 0 30px rgba(15, 98, 106, 0.65), 0 20px 40px rgba(5, 11, 20, 0.9) !important;
+    border-color: #14b8a6 !important;
+}
+
+/* 3. EventBeds Diagonale Card Paths (card-path-block) */
+.card-path-wrapper {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+    padding: 3rem 0;
+    pointer-events: none;
+}
+
+.card-path-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    will-change: transform;
+}
+
+.card-path-item {
+    pointer-events: auto;
+    background: rgba(10, 31, 68, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1.25rem;
+    padding: 1.25rem 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 15px 35px rgba(5, 11, 20, 0.6);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-path-item:hover {
+    transform: scale(1.06) translateY(-4px);
+    border-color: #0F626A;
+}
+
+/* 4. Sticky Process Section (Discover / Werkwijze: 01, 02, 03, 04) */
+#werkwijze-sticky-container {
+    position: relative;
+    height: 360vh;
+    background: #050B14;
+}
+
+.werkwijze-pinned-stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.process-deck-wrapper {
+    position: relative;
+    width: 100%;
+    height: 460px;
+    perspective: 1200px;
+}
+
+.process-step-card {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.75rem;
+    background: rgba(10, 31, 68, 0.90);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 25px rgba(15, 98, 106, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.process-step-indicator {
+    transition: color 0.3s ease, opacity 0.3s ease;
+    opacity: 0.35;
+}
+
+.process-step-indicator.step-active {
+    opacity: 1;
+    color: #14b8a6;
+}
+
+.process-step-indicator.step-active .step-num {
+    background: rgba(15, 98, 106, 0.4);
+    border-color: #14b8a6;
+    color: #ffffff;
+}
+
+/* 5. EventBeds Asymmetrisch Gekantelde Review Cards */
+.tilt-card-neg-6 {
+    transform: rotate(-6deg);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+.tilt-card-pos-11 {
+    transform: rotate(11deg);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+.tilt-card-neg-4 {
+    transform: rotate(-4deg);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+.tilt-card-pos-9 {
+    transform: rotate(9deg);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.tilt-card-neg-6:hover,
+.tilt-card-pos-11:hover,
+.tilt-card-neg-4:hover,
+.tilt-card-pos-9:hover {
+    transform: rotate(0deg) scale(1.05) translateY(-8px) !important;
+    z-index: 40 !important;
+    box-shadow: 0 35px 70px -12px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* 6. Infinite Dual Marquee Ribbons */
+@keyframes marqueeLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+@keyframes marqueeRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+    display: flex;
+    width: 200%;
+    animation: marqueeLeft 28s linear infinite;
+}
+.animate-marquee-right {
+    display: flex;
+    width: 200%;
+    animation: marqueeRight 32s linear infinite;
+}
+
+/* 7. Sticky Curtain Footer Architecture */
+.site-content-curtain {
+    position: relative;
+    z-index: 20;
+    background: #050B14;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.95);
+}
+
+.footer-curtain-container {
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 1024px) {
+    .footer-curtain-container {
+        height: 480px;
+    }
+    .footer-sticky-revealed {
+        position: sticky;
+        bottom: 0;
+        height: 480px;
+        background-color: #03070D;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+/* Mobile Fallbacks */
+@media (max-width: 1023px) {
+    #werkwijze-sticky-container {
+        height: auto !important;
+    }
+    .werkwijze-pinned-stage {
+        position: static !important;
+        height: auto !important;
+        padding: 4rem 1rem !important;
+    }
+    .process-deck-wrapper {
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .process-step-card {
+        position: static !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    .tilt-card-neg-6, .tilt-card-pos-11, .tilt-card-neg-4, .tilt-card-pos-9 {
+        transform: none !important;
+    }
+    .footer-curtain-container, .footer-sticky-revealed {
+        height: auto !important;
+        position: static !important;
+    }
+}

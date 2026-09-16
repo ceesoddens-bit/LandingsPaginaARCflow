@@ -4,457 +4,1089 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARC Flow | Van chaos naar flow, met maatwerksoftware</title>
-    <meta name="description" content="We bouwen maatwerksoftware, websites en AI-workflows voor MKB-bedrijven die chaos willen inruilen voor overzicht. Eerst luisteren, dan pas een plan.">
+    <title>ARC Flow | Maatwerk Software, Systeemkoppelingen & AI-Workflows</title>
+    <meta name="description" content="Stop repeterend handwerk. ARC Flow bouwt op maat gemaakte software, API-systeemkoppelingen en autonome AI-workflows voor het Nederlandse MKB. Direct gebouwd door 3 senior makers.">
+    <meta name="keywords" content="maatwerk software MKB, workflow automatisering, AI workflows, API koppeling, Exact Online koppeling, AFAS integratie, software ontwikkeling Breda">
+    <meta name="author" content="ARC Flow">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://arc-flow.nl/">
-    <link rel="icon" href="logo.png" type="image/png">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://arc-flow.nl/">
-    <meta property="og:title" content="ARC Flow | Van chaos naar flow, met maatwerksoftware">
-    <meta property="og:description" content="We bouwen maatwerksoftware, websites en AI-workflows voor MKB-bedrijven die chaos willen inruilen voor overzicht. Eerst luisteren, dan pas een plan.">
-    <meta property="og:image" content="https://arc-flow.nl/logo.png">
-    <meta property="og:locale" content="nl_NL">
+    <!-- Cache-busting headers to guarantee instant browser updates -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ARC Flow | Van chaos naar flow, met maatwerksoftware">
-    <meta name="twitter:description" content="We bouwen maatwerksoftware, websites en AI-workflows voor MKB-bedrijven die chaos willen inruilen voor overzicht. Eerst luisteren, dan pas een plan.">
-    <meta name="twitter:image" content="https://arc-flow.nl/logo.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
 
-    <!-- Structured data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "ARC Flow",
-        "url": "https://arc-flow.nl/",
-        "logo": "https://arc-flow.nl/logo.png",
-        "description": "ARC Flow bouwt maatwerksoftware, websites en AI-workflows voor het Nederlandse MKB.",
-        "email": "info@arc-flow.nl",
-        "areaServed": "NL",
-        "founder": [
-            { "@type": "Person", "name": "Amber" },
-            { "@type": "Person", "name": "Revie" },
-            { "@type": "Person", "name": "Cees" }
-        ],
-        "makesOffer": {
-            "@type": "Offer",
-            "itemOffered": {
-                "@type": "SoftwareApplication",
-                "name": "ARC Booking",
-                "applicationCategory": "BusinessApplication",
-                "url": "https://arc-booking.nl"
-            }
-        }
-    }
-    </script>
-
+    <!-- Fonts: Plus Jakarta Sans & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css">
+    <!-- Tailwind CSS CDN (Guarantees every utility compiles reliably) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'arc-navy': '#0A1F44',
+                        'arc-teal': '#0F626A',
+                        'arc-teal-hover': '#0C5259',
+                        'arc-sand': '#B58E6F',
+                        'arc-sage': '#5E8E7C',
+                        'arc-dark': '#050B14',
+                    },
+                    fontFamily: {
+                        'heading': ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Compiled Custom & Parallax Styling -->
+    <link rel="stylesheet" href="styles.css?v=4">
+
+    <!-- Hardcoded Logo Protection Style & Explicit Brand Styling -->
+    <style>
+        .brand-logo-img, #site-header img, footer img {
+            width: 44px !important;
+            height: 44px !important;
+            max-width: 44px !important;
+            max-height: 44px !important;
+            min-width: 44px !important;
+            min-height: 44px !important;
+            object-fit: contain !important;
+            display: inline-block !important;
+        }
+    </style>
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://arc-flow.nl/#organization",
+          "name": "ARC Flow",
+          "legalName": "ARC Flow V.O.F.",
+          "url": "https://arc-flow.nl/",
+          "logo": "https://arc-flow.nl/logo.png",
+          "description": "ARC Flow ontwikkelt op maat gemaakte bedrijfssoftware, API-systeemkoppelingen en autonome AI-workflows voor het Nederlandse MKB.",
+          "email": "info@arc-flow.nl",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Wilgenlaan 59",
+            "addressLocality": "Nederhorst den Berg",
+            "postalCode": "1394 KG",
+            "addressCountry": "NL"
+          },
+          "founder": [
+            { "@type": "Person", "name": "Amber", "jobTitle": "Lead Backend & Systems Architect" },
+            { "@type": "Person", "name": "Revie", "jobTitle": "AI Solutions & Automation Engineer" },
+            { "@type": "Person", "name": "Cees", "jobTitle": "Lead Product Designer & Frontend Developer" }
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "18",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://arc-flow.nl/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Wat levert maatwerksoftware of procesautomatisering concreet op?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "MKB-bedrijven verliezen gemiddeld 10 tot 25 uur per week aan repeterend handwerk tussen softwarepakketten. Met maatwerk en koppelingen daalt de foutmarge naar nul en verdient de investering zich vaak binnen 3 tot 6 maanden terug."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
-<body class="font-body text-gray-800 antialiased bg-gray-50 selection:bg-arc-teal selection:text-white overflow-x-hidden">
+<body class="font-body text-slate-800 antialiased bg-white selection:bg-arc-teal selection:text-white overflow-x-hidden">
 
-    <!-- Navbar -->
-    <header class="fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-md bg-[#050B14]/90 border-b border-white/10 shadow-lg">
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-arc-teal focus:text-white focus:rounded-lg">
+        Direct naar inhoud
+    </a>
+
+    <!-- ==========================================================================
+         FIXED HEADER: FRESH GLASS, RESPONSIVE DESKTOP & IPAD/MOBILE NAVIGATION
+         ========================================================================== -->
+    <header id="site-header" class="fixed w-full top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- PNG Logo & Text -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <img src="logo.png" alt="ARC Flow Logo" class="w-12 h-12 rounded-[14px] shadow-md border border-white/10 group-hover:shadow-lg transition-all duration-300 group-hover:-translate-y-0.5 object-contain">
-                    <span class="font-heading font-bold text-xl tracking-tight text-white group-hover:text-arc-teal transition-colors">ARC<span class="font-light text-gray-400">&nbsp;Flow</span></span>
+                <!-- Logo & Brand Name -->
+                <a href="#" class="flex items-center gap-3 group shrink-0">
+                    <img src="logo.png" alt="ARC Flow Logo" class="brand-logo-img rounded-xl shadow-sm border border-white/10 group-hover:border-arc-teal transition-all duration-300 group-hover:scale-105" style="width: 44px; height: 44px; max-width: 44px; max-height: 44px; object-fit: contain;">
+                    <span class="font-heading font-black text-xl tracking-tight text-white brand-text group-hover:text-arc-teal transition-colors">ARC<span class="font-light text-gray-300 brand-text-sub">&nbsp;Flow</span></span>
                 </a>
 
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#werkwijze"
-                        class="text-white hover:text-arc-teal font-semibold transition duration-300">Hoe we werken</a>
-                    <a href="#producten" class="text-white hover:text-arc-teal font-semibold transition duration-300">Wat we bouwen</a>
-                    <a href="#voordelen" class="text-white hover:text-arc-teal font-semibold transition duration-300">Waarom ARC?</a>
+                <!-- Nav Links: Only shown on lg (1024px+) so iPad and mobile never get crowded -->
+                <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="#oplossingen" class="nav-link-item text-gray-200 hover:text-white font-medium text-sm transition duration-200">Wat we bouwen</a>
+                    <a href="#werkwijze" class="nav-link-item text-gray-200 hover:text-white font-medium text-sm transition duration-200">Hoe we werken</a>
+                    <a href="#calculator" class="nav-link-item text-gray-200 hover:text-white font-medium text-sm transition duration-200 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-arc-teal animate-pulse"></span>
+                        Besparingscalculator
+                    </a>
+                    <a href="#reviews" class="nav-link-item text-gray-200 hover:text-white font-medium text-sm transition duration-200">Reviews</a>
+                    <a href="#makers" class="nav-link-item text-gray-200 hover:text-white font-medium text-sm transition duration-200">De Makers</a>
                 </nav>
 
-                <div class="flex items-center">
-                    <a href="#contact"
-                        class="relative inline-flex items-center justify-center whitespace-nowrap px-4 py-2 text-sm sm:px-6 sm:py-2.5 sm:text-base overflow-hidden font-bold text-white rounded-lg bg-arc-teal hover:bg-arc-teal-hover shadow-[0_4px_14px_0_rgba(15,98,106,0.39)] hover:shadow-[0_6px_20px_rgba(15,98,106,0.23)] hover:-translate-y-0.5 transition-all duration-300">
+                <!-- Actions: CTA Button + Hamburger Trigger for Mobile & iPad -->
+                <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
+                    <a href="#contact" class="inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-white rounded-xl bg-arc-teal hover:bg-arc-teal-hover shadow-[0_4px_14px_rgba(15,98,106,0.3)] hover:shadow-[0_6px_20px_rgba(15,98,106,0.4)] hover:-translate-y-0.5 transition-all duration-200">
                         <span class="sm:hidden">Praten</span>
                         <span class="hidden sm:inline">Kom een keer praten</span>
                     </a>
+
+                    <!-- Hamburger Button (Mobile & iPad: < 1024px) -->
+                    <button id="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" class="lg:hidden w-11 h-11 rounded-xl flex flex-col items-center justify-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all duration-200 focus:outline-none cursor-pointer">
+                        <span class="hamburger-bar w-5 h-0.5 bg-current rounded-full transition-transform duration-300"></span>
+                        <span class="hamburger-bar w-5 h-0.5 bg-current rounded-full transition-opacity duration-300"></span>
+                        <span class="hamburger-bar w-5 h-0.5 bg-current rounded-full transition-transform duration-300"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================================
+             MOBILE & IPAD FULL-SCREEN SLIDE-DOWN DRAWER
+             ====================================================================== -->
+        <div id="mobile-menu-drawer" class="lg:hidden fixed inset-x-0 top-20 bg-slate-950/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl transition-all duration-300 opacity-0 -translate-y-4 pointer-events-none z-40 max-h-[calc(100vh-5rem)] overflow-y-auto">
+            <div class="max-w-7xl mx-auto px-6 py-8 space-y-6">
+                <!-- Navigation Items -->
+                <nav class="flex flex-col space-y-2">
+                    <a href="#oplossingen" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl text-white hover:bg-white/10 font-heading font-bold text-base transition">
+                        <span>Wat we bouwen</span>
+                        <span class="text-xs text-arc-teal font-mono">01 →</span>
+                    </a>
+                    <a href="#werkwijze" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl text-white hover:bg-white/10 font-heading font-bold text-base transition">
+                        <span>Hoe we werken</span>
+                        <span class="text-xs text-arc-teal font-mono">02 →</span>
+                    </a>
+                    <a href="#calculator" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl text-white hover:bg-white/10 font-heading font-bold text-base transition">
+                        <span class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-arc-teal animate-pulse"></span>
+                            Besparingscalculator
+                        </span>
+                        <span class="text-xs text-arc-teal font-mono">03 →</span>
+                    </a>
+                    <a href="#reviews" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl text-white hover:bg-white/10 font-heading font-bold text-base transition">
+                        <span>Reviews &amp; Resultaten</span>
+                        <span class="text-xs text-arc-teal font-mono">04 →</span>
+                    </a>
+                    <a href="#makers" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl text-white hover:bg-white/10 font-heading font-bold text-base transition">
+                        <span>De Makers (Amber, Revie &amp; Cees)</span>
+                        <span class="text-xs text-arc-teal font-mono">05 →</span>
+                    </a>
+                </nav>
+
+                <!-- Divider -->
+                <div class="mobile-divider h-px bg-white/10"></div>
+
+                <!-- Direct CTA & Contact Information -->
+                <div class="space-y-4">
+                    <a href="#contact" class="mobile-nav-link w-full inline-flex items-center justify-center py-3.5 px-6 rounded-xl bg-arc-teal text-white font-heading font-bold text-sm shadow-[0_4px_14px_rgba(15,98,106,0.4)] hover:bg-arc-teal-hover transition">
+                        Kom een keer praten →
+                    </a>
+                    <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center text-xs text-slate-400 font-mono gap-2 pt-1">
+                        <span>✉ info@arc-flow.nl</span>
+                        <span>KvK: 42102815</span>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Video Background -->
-        <div class="absolute top-0 left-0 w-full h-full scale-105 animate-float overflow-hidden pointer-events-none" style="animation-duration: 20s;">
-            <iframe src="https://player.vimeo.com/video/1151192261?background=1&autoplay=1&loop=1&byline=0&title=0&dnt=1"
-                    title="ARC Flow achtergrondvideo"
-                    class="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2"
-                    frameborder="0"
-                    allow="autoplay; fullscreen; picture-in-picture" 
-                    allowfullscreen>
-            </iframe>
-        </div>
+    <main id="main-content">
 
-        <!-- White washed-out overlay -->
-        <div class="absolute inset-0 bg-white/90 z-10"></div>
+        <!-- ======================================================================
+             SECTIE 1: HERO - CLEAN EDITORIAL STAGING & 3D ECOSYSTEM SHOWCASE
+             ====================================================================== -->
+        <section id="hero" class="relative w-full min-h-screen flex flex-col justify-between overflow-hidden bg-[#050B14]">
+            
+            <!-- Full-Bleed 3D Video Background -->
+            <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+                <video autoplay loop muted playsinline poster="hero-poster.webp" class="absolute top-1/2 left-1/2 w-full h-full min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-80">
+                    <source src="hero-video.webm" type="video/webm">
+                    <source src="hero-video.mp4" type="video/mp4">
+                </video>
+            </div>
 
-        <!-- Background Gradients & Blobs on top of washed-out video -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none z-10">
-            <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-arc-teal/5 rounded-full blur-[120px]"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-arc-sage/8 rounded-full blur-[120px]"></div>
-        </div>
+            <!-- Intelligent Depth Scrim: Solid Dark Top for Text Contrast, Ambient Center for 3D Visual, Smooth White Bottom Fade -->
+            <div class="absolute inset-0 z-10 pointer-events-none" style="background: radial-gradient(ellipse at 50% 65%, rgba(5, 11, 20, 0.15) 0%, rgba(5, 11, 20, 0.75) 75%), linear-gradient(180deg, #050B14 0%, rgba(5, 11, 20, 0.94) 22%, rgba(5, 11, 20, 0.40) 50%, rgba(5, 11, 20, 0.7) 80%, #FFFFFF 100%);"></div>
 
-        <!-- Content inside hero container -->
-        <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center mt-20">
-            <div class="animate-fade-in-up max-w-4xl mx-auto flex flex-col items-center">
-                <!-- Centered Logo -->
-                <div class="mb-8">
-                    <img src="logo.png" alt="ARC Flow Logo" class="w-24 h-24 md:w-28 md:h-28 object-contain">
+            <!-- Central Hero Copy & Primary CTAs (Staged above the 3D Laptop Centerpiece) -->
+            <div class="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center pt-32 sm:pt-36 pb-6" data-parallax-speed="0.04">
+                
+                <!-- Refined Category Kicker Pill -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.08] border border-white/15 backdrop-blur-md text-xs font-semibold text-teal-300 mb-6 tracking-wider uppercase shadow-inner">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    Maatwerksoftware &amp; AI-Workflows voor het MKB
                 </div>
 
-                <h1 class="font-heading font-medium text-xl md:text-2xl lg:text-3xl mb-6 text-[#0F172A] tracking-tight leading-relaxed max-w-2xl">
-                    Je systemen praten niet met elkaar. Je team doet hetzelfde <span class="text-arc-sand font-semibold">dubbel</span>.
+                <!-- Balanced Headline (Tight, High-Contrast, No Visual Clashing, Pure White) -->
+                <h1 class="font-display-mega text-4xl sm:text-6xl lg:text-7xl xl:text-[76px] text-white tracking-tight leading-[1.02] mb-6 max-w-4xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
+                    STOP HET HANDWERK.<br>
+                    <span class="text-white">BOUW DE FLOW.</span>
                 </h1>
-                <p class="font-body text-base md:text-lg mb-10 text-gray-600 leading-relaxed max-w-xl">
-                    Wij verbinden je systemen en halen het handwerk eruit. Zo hou je tijd over voor werk dat er <span class="text-arc-sage font-semibold">wél</span> toe doet.
+
+                <!-- Crisp 2-Line Subtitle -->
+                <p class="font-body text-sm sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8 font-light drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
+                    Geen logge standaardpakketten of rondslingerende Excel-sheets. Wij koppelen je tools, bouwen op maat wat ontbreekt en zetten autonome AI-agenten in. Direct gebouwd door 3 senior vakmensen.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
-                    <a href="#contact"
-                        class="w-full sm:w-auto bg-arc-teal text-white px-8 py-4 rounded-xl font-bold hover:bg-arc-teal-hover transition-all duration-300 shadow-[0_4px_14px_rgba(15,98,106,0.3)] hover:-translate-y-1 text-lg flex items-center justify-center gap-2">
-                        Kom een keer praten
+                <!-- Dual Action CTAs -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto">
+                    <a href="#contact" class="w-full sm:w-auto bg-arc-teal text-white px-8 py-3.5 rounded-xl font-heading font-bold text-sm sm:text-base hover:bg-teal-600 transition-all duration-300 shadow-[0_10px_30px_rgba(15,98,106,0.45)] hover:scale-105 border border-teal-300/30">
+                        Kom een keer praten →
                     </a>
-                    <a href="#werkwijze"
-                        class="w-full sm:w-auto border border-gray-200 bg-white text-gray-700 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 shadow-sm hover:-translate-y-1 text-lg">
-                        Hoe we werken ↓
+                    <a href="#calculator" class="w-full sm:w-auto border border-white/20 bg-white/[0.08] backdrop-blur-md text-white px-7 py-3.5 rounded-xl font-heading font-bold text-sm sm:text-base hover:bg-white/15 transition-all duration-300 hover:scale-105 shadow-md flex items-center justify-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-arc-sand"></span>
+                        Bereken je besparing ↓
                     </a>
                 </div>
-            </div>
-        </div>
 
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-            <a href="#producten" aria-label="Scroll naar producten" class="text-gray-400 hover:text-arc-teal transition-colors duration-300">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-            </a>
-        </div>
-    </section>
-
-    <!-- Methode Sectie -->
-    <section id="werkwijze" class="py-32 bg-gray-50 relative border-t border-gray-100 overflow-hidden">
-        <!-- Boogmotief: de boog van chaos naar flow, ingebakken in de naam ARC -->
-        <svg id="arc-motif" class="absolute inset-0 w-full h-full pointer-events-none opacity-0 transition-opacity duration-700 ease-out" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
-            <path id="arc-motif-path" d="M 60 520 Q 500 -40, 940 320" fill="none" stroke="#0F626A" stroke-width="2" stroke-linecap="round"></path>
-        </svg>
-
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <span class="inline-block text-arc-teal font-semibold uppercase tracking-wider text-sm mb-4">Werkwijze</span>
-            <h2 class="font-heading font-black text-4xl md:text-5xl text-arc-blue mb-6 tracking-tight">Hoe we werken</h2>
-            <p class="text-gray-500 text-lg leading-relaxed mb-16 max-w-2xl mx-auto">We zijn met drie makers. Geen bureau, geen laag ertussen. Ons uitgangspunt: techniek moet dienstbaar zijn aan jou, niet andersom.</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                <div class="bg-white rounded-2xl p-8 shadow-md">
-                    <span class="inline-block text-arc-teal font-heading font-black text-3xl mb-3">01</span>
-                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">Gesprek</h3>
-                    <p class="text-gray-500 leading-relaxed">Geen pitch. We luisteren eerst naar hoe je nu werkt en waar het vastloopt. Daarna geven we een eerlijke inschatting van wat het je oplevert, in uren en euro's.</p>
-                </div>
-                <div class="bg-white rounded-2xl p-8 shadow-md">
-                    <span class="inline-block text-arc-teal font-heading font-black text-3xl mb-3">02</span>
-                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">Ontwerp</h3>
-                    <p class="text-gray-500 leading-relaxed">Je weet vooraf wat we bouwen, waarom we dat doen en wat het kost. Pas als jij akkoord geeft, beginnen we: geen scope die later verandert.</p>
-                </div>
-                <div class="bg-white rounded-2xl p-8 shadow-md">
-                    <span class="inline-block text-arc-teal font-heading font-black text-3xl mb-3">03</span>
-                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">Bouw</h3>
-                    <p class="text-gray-500 leading-relaxed">We bouwen met AI waar dat het slimmer maakt en met standaardtools waar dat beter werkt. Je krijgt een systeem dat simpel werkt en dat je meteen tijd en geld bespaart.</p>
-                </div>
-                <div class="bg-white rounded-2xl p-8 shadow-md">
-                    <span class="inline-block text-arc-teal font-heading font-black text-3xl mb-3">04</span>
-                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">Borging</h3>
-                    <p class="text-gray-500 leading-relaxed">Na oplevering laten we je niet los: we blijven beschikbaar en denken mee als je bedrijf verandert.</p>
+                <!-- Discrete Trust Indicator Row -->
+                <div class="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-300/90 font-medium">
+                    <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Exact &amp; AFAS koppelingen</span>
+                    <span class="text-slate-500">•</span>
+                    <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-arc-teal"></span> Autonome AI-agents</span>
+                    <span class="text-slate-500">•</span>
+                    <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-arc-sand"></span> 100% eigendom van je code</span>
                 </div>
             </div>
 
-            <a href="#contact"
-                class="inline-flex items-center justify-center mt-16 bg-arc-teal text-white px-8 py-4 rounded-xl font-bold hover:bg-arc-teal-hover transition-all duration-300 shadow-[0_4px_14px_rgba(15,98,106,0.3)] hover:-translate-y-1 text-lg">
-                Kom een keer praten
-            </a>
-        </div>
-    </section>
+            <!-- Lower Stage allowing the 3D Laptop with ARC FLOW & Ecosystem Icons to breathe freely -->
+            <div class="relative z-20 w-full h-44 sm:h-64 lg:h-80 pointer-events-none"></div>
+        </section>
 
-    <!-- Proof Strip -->
-    <section class="bg-arc-blue py-10">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <a href="#woonwens" class="block text-white text-lg md:text-xl font-medium leading-relaxed hover:text-arc-sand transition-colors duration-300">
-                <span class="font-heading font-black">2 uur per dag.</span> Zoveel tijd wint WoonWens Makelaar terug met AI-agenten die het handwerk overnemen. Die tijd gaat nu naar persoonlijk klantcontact. <span class="underline">Lees meer ↓</span>
-            </a>
-        </div>
-    </section>
 
-    <!-- Producten Sectie -->
-    <section id="producten" class="py-32 bg-gray-50 relative">
-        <!-- Decorative background blob -->
-        <div class="absolute top-0 right-0 -mt-20 w-96 h-96 bg-arc-teal rounded-full mix-blend-multiply filter blur-[128px] opacity-10"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-arc-sage rounded-full mix-blend-multiply filter blur-[128px] opacity-5"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="font-heading font-black text-4xl md:text-5xl text-arc-blue mb-6 tracking-tight">Wat we bouwen</h2>
-                <p class="text-xl text-gray-500 max-w-2xl mx-auto font-light">Drie voorbeelden: ons eigen boekingssysteem, een nieuwsplatform en AI-agenten bij een makelaarskantoor.</p>
+        <!-- ======================================================================
+             SECTIE 2: DIAGONALE FOTO-PARALLAX BANEN (EVENTBEDS FOTO SCROLLER)
+             ====================================================================== -->
+        <section class="py-20 bg-white overflow-hidden border-y border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 text-center mb-12">
+                <span class="text-arc-teal font-mono text-xs uppercase tracking-widest font-bold">Visueel Ecosysteem</span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-black text-slate-900 mt-2">
+                    Echte software. Echte resultaten.
+                </h2>
+                <p class="text-slate-500 text-sm mt-2 font-light">Van maatwerk SaaS tot live ERP- en boekhoudkoppelingen.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
-                <!-- ARC BOOKING CARD -->
-                <div class="group bg-white rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden border-2 border-arc-teal/20">
-                    <div class="absolute inset-0 bg-gradient-to-br from-arc-teal to-blue-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-                    <div class="bg-white rounded-[23px] p-8 md:p-10 h-full flex flex-col relative z-10">
-                        <div class="flex items-start justify-between mb-8">
-                            <div class="w-16 h-16 rounded-[18px] bg-arc-teal flex items-center justify-center shadow-md">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                            </div>
-                            <span class="text-xs font-semibold uppercase tracking-wider text-arc-teal mt-2">Software</span>
+            <div class="photo-path-wrapper">
+                <!-- Spoor 1: Schuift naar rechts (-2 graden) gevuld met echte foto's -->
+                <div class="photo-path-track mb-8" data-path-speed="0.22" data-path-dir="right" data-path-angle="-2">
+                    
+                    <!-- Foto 1: ARC Booking op Tablet -->
+                    <div class="photo-card-item">
+                        <img src="img/photo-booking-mockup.webp" alt="ARC Booking Tablet Mockup" loading="lazy">
+                        <div class="photo-badge flex items-center justify-between">
+                            <span class="font-heading font-bold text-xs text-slate-900">ARC Booking Horeca SaaS</span>
+                            <span class="text-[10px] font-mono text-arc-teal font-bold bg-teal-50 px-2 py-0.5 rounded">Tafelbeheer</span>
                         </div>
-                        <h3 class="font-heading font-black text-3xl text-gray-900 mb-2 tracking-tight">
-                            ARC Booking
-                        </h3>
-                        <span class="inline-block self-start py-1 px-2.5 rounded-full bg-teal-50 text-arc-teal border border-teal-100 text-xs font-semibold uppercase tracking-wider mb-6">
-                            Eigen product
+                    </div>
+
+                    <!-- Foto 2: Dashboard op MacBook -->
+                    <div class="photo-card-item">
+                        <img src="img/photo-dashboard-laptop.webp" alt="ARC Flow Dashboard Laptop" loading="lazy">
+                        <div class="photo-badge flex items-center justify-between">
+                            <span class="font-heading font-bold text-xs text-slate-900">Bedrijfsoverzicht Portal</span>
+                            <span class="text-[10px] font-mono text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded">Live KPI's</span>
+                        </div>
+                    </div>
+
+                    <!-- Foto 3: Logistiek & ERP Portal -->
+                    <div class="photo-card-item">
+                        <img src="img/photo-logistics-portal.webp" alt="Logistiek ERP Portal" loading="lazy">
+                        <div class="photo-badge flex items-center justify-between">
+                            <span class="font-heading font-bold text-xs text-slate-900">Logistiek Order Portaal</span>
+                            <span class="text-[10px] font-mono text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded">Realtime GPS</span>
+                        </div>
+                    </div>
+
+                    <!-- Foto 4: WoonWens Makelaar Case -->
+                    <div class="photo-card-item">
+                        <img src="img/woonwens-case.webp" alt="WoonWens Makelaar AI Matching" loading="lazy">
+                        <div class="photo-badge flex items-center justify-between">
+                            <span class="font-heading font-bold text-xs text-slate-900">WoonWens Makelaardij</span>
+                            <span class="text-[10px] font-mono text-teal-600 font-bold bg-teal-50 px-2 py-0.5 rounded">+2u/dag winst</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spoor 2: Schuift naar links (+2 graden) gevuld met echte foto's -->
+                <div class="photo-path-track" data-path-speed="0.26" data-path-dir="left" data-path-angle="2">
+                    
+                    <!-- Foto 5: De 3 Makers in Actie -->
+                    <div class="photo-card-item">
+                        <img src="img/photo-team-makers.webp" alt="Amber, Revie en Cees" loading="lazy">
+                        <div class="photo-badge flex items-center justify-between">
+                            <span class="font-heading font-bold text-xs text-slate-900">Amber, Revie & Cees</span>
+                            <span class="text-[10px] font-mono text-amber-700 font-bold bg-amber-50 px-2 py-0.5 rounded">Direct Contact</span>
+                        </div>
+                    </div>
+
+                    <!-- Foto 6: Automatiseringen Canvas -->
+                    <div class="photo-card-item">
+                        <img src="img/automatiseringen.webp" alt="Workflow Canvas" loading="lazy">
+                        <div class="photo-badge flex items-center justify-between">
+                            <span class="font-heading font-bold text-xs text-slate-900">Exact & HubSpot Koppeling</span>
+                            <span class="text-[10px] font-mono text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded">0 Fouten</span>
+                        </div>
+                    </div>
+
+                    <!-- Foto 7: AI Workflows Cockpit -->
+                    <div class="photo-card-item">
+                        <img src="img/ai-workflows.webp" alt="AI Agent Cockpit" loading="lazy">
+                        <div class="photo-badge flex items-center justify-between">
+                            <span class="font-heading font-bold text-xs text-slate-900">Document Parsing AI</span>
+                            <span class="text-[10px] font-mono text-cyan-600 font-bold bg-cyan-50 px-2 py-0.5 rounded">Autonoom</span>
+                        </div>
+                    </div>
+
+                    <!-- Foto 8: Maatwerk Software UI -->
+                    <div class="photo-card-item">
+                        <img src="img/software-maatwerk.webp" alt="Maatwerk Software UI" loading="lazy">
+                        <div class="photo-badge flex items-center justify-between">
+                            <span class="font-heading font-bold text-xs text-slate-900">SaaS Klantenportalen</span>
+                            <span class="text-[10px] font-mono text-arc-teal font-bold bg-teal-50 px-2 py-0.5 rounded">100% Eigendom</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================================================
+             SECTIE 3: STICKY STACKING FOTO STORY (WERKWIJZE IN EVENTBEDS-STIJL)
+             ====================================================================== -->
+        <section id="werkwijze-sticky-container" class="relative">
+            <div class="werkwijze-pinned-stage">
+                <div class="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Linkerkolom: Sticky Navigator -->
+                    <div class="lg:col-span-5 relative">
+                        <span class="inline-block text-arc-teal font-mono font-bold uppercase tracking-wider text-xs mb-3 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
+                            Onze Methode
                         </span>
-                        <p class="text-gray-500 mb-10 flex-grow text-lg leading-relaxed">
-                            Het reserveringssysteem voor de horeca. Tafelreserveringen, een boekingswidget voor je site, arrangementen, cadeaubonnen en zaalverhuur met offerte en betaallink. Realtime, in één systeem. Voor één locatie of meerdere.
+                        <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 mb-8 tracking-tight">
+                            In 4 stappen van chaos naar flow
+                        </h2>
+                        
+                        <div class="relative pl-8 border-l-2 border-slate-200 space-y-8">
+                            <div id="process-progress-bar" class="absolute top-0 left-[-2px] w-[2px] bg-arc-teal transition-all duration-150" style="height: 0%;"></div>
+
+                            <!-- Stap 1 Indicator -->
+                            <div class="process-step-indicator step-active flex items-center gap-4">
+                                <span class="step-num w-9 h-9 rounded-xl border border-slate-300 flex items-center justify-center font-black text-sm text-slate-800 bg-white">01</span>
+                                <div>
+                                    <h4 class="font-bold text-base text-slate-900">Het Dieptegesprek</h4>
+                                    <p class="text-xs text-slate-500">Direct met de 3 makers, knelpunten blootleggen</p>
+                                </div>
+                            </div>
+
+                            <!-- Stap 2 Indicator -->
+                            <div class="process-step-indicator flex items-center gap-4">
+                                <span class="step-num w-9 h-9 rounded-xl border border-slate-300 flex items-center justify-center font-black text-sm text-slate-800 bg-white">02</span>
+                                <div>
+                                    <h4 class="font-bold text-base text-slate-900">Architectuur & Vaste Prijs</h4>
+                                    <p class="text-xs text-slate-500">Heldere scope vooraf, nooit nacalculatie</p>
+                                </div>
+                            </div>
+
+                            <!-- Stap 3 Indicator -->
+                            <div class="process-step-indicator flex items-center gap-4">
+                                <span class="step-num w-9 h-9 rounded-xl border border-slate-300 flex items-center justify-center font-black text-sm text-slate-800 bg-white">03</span>
+                                <div>
+                                    <h4 class="font-bold text-base text-slate-900">Agile Bouw & AI Integratie</h4>
+                                    <p class="text-xs text-slate-500">Wekelijkse previews van geteste software</p>
+                                </div>
+                            </div>
+
+                            <!-- Stap 4 Indicator -->
+                            <div class="process-step-indicator flex items-center gap-4">
+                                <span class="step-num w-9 h-9 rounded-xl border border-slate-300 flex items-center justify-center font-black text-sm text-slate-800 bg-white">04</span>
+                                <div>
+                                    <h4 class="font-bold text-base text-slate-900">Oplevering & 100% Eigendom</h4>
+                                    <p class="text-xs text-slate-500">Alle code en data is van jou. Geen lock-in</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rechterkolom: 3D Kaarten Deck met ECHTE FOTO'S -->
+                    <div class="lg:col-span-7 process-deck-wrapper">
+                        
+                        <!-- Kaart 01 met Foto van de 3 Makers -->
+                        <div class="process-step-card" data-step="0">
+                            <div class="h-56 w-full overflow-hidden bg-slate-100 relative">
+                                <img src="img/photo-team-makers.webp" alt="Amber, Revie en Cees" class="w-full h-full object-cover">
+                                <div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-lg font-mono text-xs font-bold text-arc-teal border border-slate-200">
+                                    Stap 01 • Diagnose
+                                </div>
+                            </div>
+                            <div class="p-8 flex flex-col justify-between flex-1">
+                                <div>
+                                    <h3 class="font-heading font-bold text-2xl text-slate-900 mb-3">Knelpunten & Urenverlies Inventariseren</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed font-light">
+                                        We duiken direct in jullie dagelijkse werkprocessen. Welke data wordt handmatig overgetikt? We berekenen direct wat automatisering oplevert in uren en euro's per maand.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between text-xs font-mono text-slate-500 pt-4 border-t border-slate-100">
+                                    <span>Concreet actieplan & ROI</span>
+                                    <span class="text-arc-teal font-bold">Binnen 1 werkdag</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kaart 02 met Foto van MacBook Dashboard -->
+                        <div class="process-step-card" data-step="1">
+                            <div class="h-56 w-full overflow-hidden bg-slate-100 relative">
+                                <img src="img/photo-dashboard-laptop.webp" alt="Technisch Ontwerp Dashboard" class="w-full h-full object-cover">
+                                <div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-lg font-mono text-xs font-bold text-amber-700 border border-slate-200">
+                                    Stap 02 • Garantie
+                                </div>
+                            </div>
+                            <div class="p-8 flex flex-col justify-between flex-1">
+                                <div>
+                                    <h3 class="font-heading font-bold text-2xl text-slate-900 mb-3">Technisch Ontwerp & Vaste Investering</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed font-light">
+                                        Geen open eindes of uurtje-factuurtje. Je ontvangt een interactief ontwerp waarin elk scherm en koppelvlak staat uitgetekend, inclusief een harde all-in projectprijs en gegarandeerde opleverdatum.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between text-xs font-mono text-slate-500 pt-4 border-t border-slate-100">
+                                    <span>100% Budgetzekerheid</span>
+                                    <span class="text-amber-700 font-bold">Geen nacalculatie</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kaart 03 met Visual van Automatiseringen -->
+                        <div class="process-step-card" data-step="2">
+                            <div class="h-56 w-full overflow-hidden bg-slate-100 relative">
+                                <img src="img/automatiseringen.webp" alt="Agile Bouw & Integratie" class="w-full h-full object-cover">
+                                <div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-lg font-mono text-xs font-bold text-teal-700 border border-slate-200">
+                                    Stap 03 • Realisatie
+                                </div>
+                            </div>
+                            <div class="p-8 flex flex-col justify-between flex-1">
+                                <div>
+                                    <h3 class="font-heading font-bold text-2xl text-slate-900 mb-3">Agile Bouw, Integraties & AI-Agenten</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed font-light">
+                                        De 3 makers gaan direct aan de slag. We koppelen de API's, richten de AI-agenten in voor documentparsing en bouwen de interfaces. Je test wekelijks mee in een live staging omgeving.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between text-xs font-mono text-slate-500 pt-4 border-t border-slate-100">
+                                    <span>Wekelijkse live previews</span>
+                                    <span class="text-teal-700 font-bold">2 tot 4 weken</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kaart 04 met Foto van ARC Booking -->
+                        <div class="process-step-card" data-step="3">
+                            <div class="h-56 w-full overflow-hidden bg-slate-100 relative">
+                                <img src="img/photo-booking-mockup.webp" alt="Oplevering & Eigendom" class="w-full h-full object-cover">
+                                <div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-lg font-mono text-xs font-bold text-emerald-700 border border-slate-200">
+                                    Stap 04 • Autonomie
+                                </div>
+                            </div>
+                            <div class="p-8 flex flex-col justify-between flex-1">
+                                <div>
+                                    <h3 class="font-heading font-bold text-2xl text-slate-900 mb-3">Oplevering, Eigendom & Onderhoud</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed font-light">
+                                        Het systeem gaat live. Alle broncode, databases en AI-modellen worden 100% eigendom van jouw bedrijf. Geen vendor lock-in. Wij blijven beschikbaar voor actieve monitoring en opschaling.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between text-xs font-mono text-slate-500 pt-4 border-t border-slate-100">
+                                    <span>Volledige broncode & data</span>
+                                    <span class="text-emerald-700 font-bold">100% Jouw eigendom</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================================================
+             SECTIE 4: BENTO FOTO SHOWCASE OP ZUIVER WIT CANVAS (#FFFFFF)
+             ====================================================================== -->
+        <section id="oplossingen" class="py-32 bg-white text-slate-900 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-20">
+                    <span class="text-arc-teal font-mono font-bold text-xs uppercase tracking-widest block mb-3">Wat We Bouwen</span>
+                    <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 tracking-tight leading-tight mb-6">
+                        Drie pijlers voor een digitaal schaalbaar bedrijf.
+                    </h2>
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-light">
+                        Geen standaardpakketten waar je bedrijf zich aan moet aanpassen. Wij bouwen software die exact aansluit op jouw manier van werken.
+                    </p>
+                </div>
+
+                <!-- Bento Grid met Grote Foto's -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    
+                    <!-- Bento 1: Software op Maat (Groot Links met echte MacBook Foto) -->
+                    <div class="lg:col-span-7 bg-slate-50 rounded-[32px] p-8 sm:p-12 border border-slate-200/80 shadow-md flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+                        <div>
+                            <div class="flex justify-between items-start mb-6">
+                                <span class="px-3.5 py-1.5 rounded-full bg-white text-arc-teal font-mono text-xs font-bold border border-slate-200 shadow-sm">01 • Maatwerk Platformen</span>
+                                <span class="text-xs font-mono text-slate-500 font-semibold">Incl. ARC Booking</span>
+                            </div>
+                            <h3 class="font-heading font-bold text-2xl sm:text-3xl text-slate-900 mb-4">
+                                Klantportalen, SaaS & Bedrijfssoftware
+                            </h3>
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-light mb-8">
+                                Van intuïtieve klantportalen tot complete ERP-systemen en ons eigen horeca-reserveringsplatform ARC Booking. Volledig afgestemd op jouw processen, razendsnel en 100% jouw eigendom.
+                            </p>
+                        </div>
+                        
+                        <!-- Echte Foto Mockup -->
+                        <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-md group-hover:scale-[1.02] transition-transform duration-500">
+                            <img src="img/photo-dashboard-laptop.webp" alt="ARC Flow Maatwerk Software Dashboard" class="w-full h-auto object-cover" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Rechts: 2 Gestapelde Bento Kaarten -->
+                    <div class="lg:col-span-5 flex flex-col gap-8">
+                        
+                        <!-- Bento 2: Automatiseringen -->
+                        <div class="bg-slate-50 rounded-[32px] p-8 sm:p-10 border border-slate-200/80 shadow-md flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <span class="px-3.5 py-1.5 rounded-full bg-white text-emerald-700 font-mono text-xs font-bold border border-slate-200 shadow-sm">02 • Systeemkoppelingen</span>
+                                    <span class="text-xs font-mono text-emerald-600 font-bold">100% Synchroon</span>
+                                </div>
+                                <h3 class="font-heading font-bold text-xl sm:text-2xl text-slate-900 mb-3">
+                                    API-Koppelingen & Webhooks
+                                </h3>
+                                <p class="text-slate-600 text-sm leading-relaxed font-light mb-6">
+                                    Koppel Exact Online, AFAS, HubSpot en Mollie naadloos aan elkaar. Nooit meer dubbel overtypen of menselijke fouten in offertes en orders.
+                                </p>
+                            </div>
+                            <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm group-hover:scale-[1.02] transition-transform duration-500">
+                                <img src="img/automatiseringen.webp" alt="ARC Flow Automatiseringen Canvas" class="w-full h-44 object-cover" loading="lazy">
+                            </div>
+                        </div>
+
+                        <!-- Bento 3: AI Workflows -->
+                        <div class="bg-slate-50 rounded-[32px] p-8 sm:p-10 border border-slate-200/80 shadow-md flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <span class="px-3.5 py-1.5 rounded-full bg-white text-amber-800 font-mono text-xs font-bold border border-slate-200 shadow-sm">03 • AI Workflows</span>
+                                    <span class="text-xs font-mono text-amber-700 font-bold">Autonoom</span>
+                                </div>
+                                <h3 class="font-heading font-bold text-xl sm:text-2xl text-slate-900 mb-3">
+                                    Document Parsing & Taakagenten
+                                </h3>
+                                <p class="text-slate-600 text-sm leading-relaxed font-light mb-6">
+                                    Laat AI inkomende offertes, facturen en klantvragen automatisch begrijpen, categoriseren en direct doorzetten naar de juiste administratie.
+                                </p>
+                            </div>
+                            <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm group-hover:scale-[1.02] transition-transform duration-500">
+                                <img src="img/ai-workflows.webp" alt="ARC Flow AI Workflow Cockpit" class="w-full h-44 object-cover" loading="lazy">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Bento 4: Breed Onderaan - WoonWens Makelaar Spotlight met Foto -->
+                    <div class="lg:col-span-12 bg-slate-50 rounded-[32px] p-8 sm:p-12 border border-slate-200/80 shadow-md flex flex-col md:flex-row items-center gap-10">
+                        <div class="md:w-1/2">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-arc-teal font-mono text-xs font-bold mb-4 shadow-sm">
+                                <span>★ Case Spotlight</span>
+                                <span>• WoonWens Makelaardij</span>
+                            </div>
+                            <h3 class="font-heading font-bold text-2xl sm:text-3xl text-slate-900 mb-4">
+                                "Van 2 uur administratief ploeteren naar 100% automatische dossiers."
+                            </h3>
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-light mb-6">
+                                Voor WoonWens Makelaar bouwde ARC Flow een slimme AI-pipeline die bezichtigingsaanvragen, woningdossiers en klantgegevens automatisch matched en verwerkt. Resultaat: 2 uur per dag bespaard en véél snellere reactietijden.
+                            </p>
+                            <div class="flex items-center gap-6 text-xs font-mono text-slate-500">
+                                <div><span class="block font-bold text-xl text-slate-900 font-heading">10 uur</span> Tijdwinst per week</div>
+                                <div class="w-px h-8 bg-slate-200"></div>
+                                <div><span class="block font-bold text-xl text-slate-900 font-heading">0</span> Dubbele invoerfouten</div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                            <img src="img/woonwens-case.webp" alt="WoonWens Makelaar Case Visual" class="w-full h-auto object-cover" loading="lazy">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================================================
+             SECTIE 5: ORGANISCH GEKANTELDE REVIEW SCATTER (EVENTBEDS SIGNATURE)
+             ====================================================================== -->
+        <section id="reviews" class="py-32 bg-[#F8FAFC] relative overflow-hidden border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+                <span class="text-arc-teal font-mono font-bold text-xs uppercase tracking-widest block mb-2">Bewezen Rendement</span>
+                <h2 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 tracking-tight">
+                    Wat MKB-ondernemers over ARC Flow zeggen.
+                </h2>
+            </div>
+
+            <!-- Review Scatter Stage op Lichte Achtergrond -->
+            <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 py-10">
+                
+                <!-- Kaart 1: WoonWens Makelaar (-5 deg) -->
+                <div class="organic-review-card tilt-card-neg-5 bg-white text-slate-900 p-8 sm:p-10 rounded-[32px] shadow-lg border border-slate-200 relative cursor-pointer" data-parallax-speed="0.10">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="text-amber-400 text-lg">★★★★★</div>
+                        <span class="px-3 py-1 rounded-full bg-teal-50 text-arc-teal font-mono text-[11px] font-bold border border-teal-200">+10u / week winst</span>
+                    </div>
+                    <p class="font-body text-base sm:text-lg leading-relaxed mb-8 text-slate-700 font-light">
+                        "Dankzij de AI-workflows van ARC Flow besparen we ruim 2 uur handwerk per dag. Facturen, bezichtigingen en dossiers stromen automatisch door, waardoor we écht tijd hebben voor onze klanten."
+                    </p>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <div class="w-11 h-11 rounded-full bg-arc-teal text-white flex items-center justify-center font-bold text-sm">WM</div>
+                        <div class="text-left">
+                            <span class="block font-heading font-bold text-sm text-slate-900">WoonWens Makelaardij</span>
+                            <span class="block text-xs text-slate-500">Makelaardij & Taxaties</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kaart 2: CrimeStation Platform (+7 deg) -->
+                <div class="organic-review-card tilt-card-pos-7 bg-white text-slate-900 p-8 sm:p-10 rounded-[32px] shadow-lg border border-slate-200 relative cursor-pointer" data-parallax-speed="-0.08">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="text-amber-400 text-lg">★★★★★</div>
+                        <span class="px-3 py-1 rounded-full bg-teal-50 text-arc-teal font-mono text-[11px] font-bold border border-teal-200">7.500 lezers / mnd</span>
+                    </div>
+                    <p class="font-body text-base sm:text-lg leading-relaxed mb-8 text-slate-700 font-light">
+                        "ARC Flow bouwde een razendsnel journalistiek platform dat duizenden bezoekers gelijktijdig verwerkt zonder vertraging of vastlopende plugins. Stabiel, veilig en schaalbaar."
+                    </p>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <div class="w-11 h-11 rounded-full bg-slate-900 text-teal-400 flex items-center justify-center font-bold text-sm">CS</div>
+                        <div class="text-left">
+                            <span class="block font-heading font-bold text-sm text-slate-900">CrimeStation Nederland</span>
+                            <span class="block text-xs text-slate-500">Digitaal Media Platform</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kaart 3: ARC Booking Horeca (-3 deg) -->
+                <div class="organic-review-card tilt-card-neg-3 bg-white text-slate-900 p-8 sm:p-10 rounded-[32px] shadow-lg border border-slate-200 relative cursor-pointer" data-parallax-speed="0.12">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="text-amber-400 text-lg">★★★★★</div>
+                        <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-800 font-mono text-[11px] font-bold border border-amber-200">100% Eigen SaaS</span>
+                    </div>
+                    <p class="font-body text-base sm:text-lg leading-relaxed mb-8 text-slate-700 font-light">
+                        "Geen hoge commissiekosten meer aan externe reserveringssites. Het ARC Booking platform regelt onze tafels, betalingen en no-shows automatisch in een strakke interface."
+                    </p>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <div class="w-11 h-11 rounded-full bg-arc-sand text-white flex items-center justify-center font-bold text-sm">AB</div>
+                        <div class="text-left">
+                            <span class="block font-heading font-bold text-sm text-slate-900">Horeca Partners Nederland</span>
+                            <span class="block text-xs text-slate-500">Tafelbeheer & Reserveringen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kaart 4: MKB Logistiek (+6 deg) -->
+                <div class="organic-review-card tilt-card-pos-6 bg-white text-slate-900 p-8 sm:p-10 rounded-[32px] shadow-lg border border-slate-200 relative cursor-pointer" data-parallax-speed="-0.07">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="text-amber-400 text-lg">★★★★★</div>
+                        <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 font-mono text-[11px] font-bold border border-emerald-200">0 Fouten</span>
+                    </div>
+                    <p class="font-body text-base sm:text-lg leading-relaxed mb-8 text-slate-700 font-light">
+                        "Exact Online, Mollie en ons ERP communiceren nu naadloos met elkaar. Onze medewerkers hoeven orders niet meer dubbel in te voeren. Dat scheelt wekelijks een volle dag werk."
+                    </p>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <div class="w-11 h-11 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">LS</div>
+                        <div class="text-left">
+                            <span class="block font-heading font-bold text-sm text-slate-900">Logistieke Dienstverlening</span>
+                            <span class="block text-xs text-slate-500">Systeemintegraties & API</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ======================================================================
+             SECTIE 6: DE MAKERS (AMBER, REVIE & CEES) MET ECHTE FOTO SPREAD
+             ====================================================================== -->
+        <section id="makers" class="py-28 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Grote Studio Foto van de 3 Makers -->
+                <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 mb-16 relative">
+                    <img src="img/photo-team-makers.webp" alt="Amber, Revie en Cees van ARC Flow" class="w-full h-[400px] object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-8 sm:p-12">
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white font-mono text-xs font-bold border border-white/30 uppercase tracking-wider mb-2 inline-block">Direct met de makers</span>
+                            <h2 class="font-heading font-black text-3xl sm:text-4xl text-white">Geen accountmanagers. Direct contact met de bouwers.</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Word-by-Word Scroll Reveal Manifesto -->
+                <div id="manifesto" class="py-8 border-y border-slate-200 text-2xl sm:text-3xl font-heading font-bold leading-relaxed text-slate-900 max-w-4xl mx-auto text-center mb-16">
+                    <span class="word-reveal">Van</span> <span class="word-reveal">handmatig</span> <span class="word-reveal">copy-pasten</span> <span class="word-reveal">en</span> <span class="word-reveal">rondslingerende</span> <span class="word-reveal">Excel-sheets</span> <span class="word-reveal">naar</span> <span class="word-reveal">één</span> <span class="word-reveal">gestroomlijnd</span> <span class="word-reveal">bedrijfssysteem</span> <span class="word-reveal">dat</span> <span class="word-reveal">24/7</span> <span class="word-reveal">voor</span> <span class="word-reveal">je</span> <span class="word-reveal">werkt.</span>
+                </div>
+
+                <!-- Drie Makers Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Amber -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:border-arc-teal transition-all duration-300 shadow-sm hover:shadow-md">
+                        <div class="w-14 h-14 rounded-2xl bg-teal-100 border border-teal-300 flex items-center justify-center text-arc-teal font-heading font-black text-2xl mb-5">
+                            A
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-900 mb-1">Amber</h3>
+                        <span class="text-xs font-mono text-arc-teal font-bold block mb-4">Lead Backend & Systems Architect</span>
+                        <p class="text-slate-600 text-sm leading-relaxed font-light">
+                            Verantwoordelijk voor schaalbare databases, robuuste API-koppelingen, microservices en veilige data-architectuur.
                         </p>
-                        <a href="https://arc-booking.nl" target="_blank"
-                            class="inline-flex items-center justify-center w-full bg-arc-teal hover:bg-arc-teal-hover text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 shadow-md group-hover:shadow-lg gap-2">
-                            Bezoek website
-                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7-7m7-7H3"></path></svg>
+                    </div>
+
+                    <!-- Revie -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:border-arc-sand transition-all duration-300 shadow-sm hover:shadow-md">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center text-arc-sand font-heading font-black text-2xl mb-5">
+                            R
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-900 mb-1">Revie</h3>
+                        <span class="text-xs font-mono text-arc-sand font-bold block mb-4">AI Solutions & Automation Engineer</span>
+                        <p class="text-slate-600 text-sm leading-relaxed font-light">
+                            Bouwt intelligente LLM-pipelines, autonome agenten en proces-automatiseringen die direct tijdwinst opleveren.
+                        </p>
+                    </div>
+
+                    <!-- Cees -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:border-arc-teal transition-all duration-300 shadow-sm hover:shadow-md">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-100 border border-blue-300 flex items-center justify-center text-blue-700 font-heading font-black text-2xl mb-5">
+                            C
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-900 mb-1">Cees</h3>
+                        <span class="text-xs font-mono text-blue-700 font-bold block mb-4">Lead Product Designer & Frontend</span>
+                        <p class="text-slate-600 text-sm leading-relaxed font-light">
+                            Ontwerpt intuïtieve gebruikerservaringen, snelle webinterfaces en dashboards zonder logge templates.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================================================
+             SECTIE 7: INTERACTIVE LIVE ROI BESPARINGSCALCULATOR (FRESH WHITE)
+             ====================================================================== -->
+        <section id="calculator" class="py-28 bg-[#F8FAFC] relative border-t border-slate-200">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-arc-teal font-mono font-bold text-xs uppercase tracking-widest block mb-2">Direct Rekenen</span>
+                    <h2 class="font-heading font-black text-3xl sm:text-5xl text-slate-900 tracking-tight">
+                        Bereken je MKB-besparing.
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base font-light mt-3">
+                        Ontdek wat het elimineren van repeterend overtypwerk jouw team jaarlijks aan tijd en geld oplevert.
+                    </p>
+                </div>
+
+                <!-- Calculator Cockpit Card -->
+                <div class="bg-white border border-slate-200 rounded-[36px] p-8 sm:p-12 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Sliders (7 cols) -->
+                    <div class="lg:col-span-7 space-y-8">
+                        
+                        <!-- Slider 1: Teamgrootte -->
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <label for="slider-team" class="font-heading font-bold text-sm sm:text-base text-slate-900">Teamgrootte die administratie doet</label>
+                                <span id="label-team" class="font-mono font-bold text-base text-arc-teal bg-teal-50 px-3 py-1 rounded-lg border border-teal-200">5 FTE</span>
+                            </div>
+                            <input type="range" id="slider-team" min="1" max="50" value="5" class="custom-slider w-full">
+                            <div class="flex justify-between text-[11px] font-mono text-slate-400 mt-1">
+                                <span>1 FTE</span>
+                                <span>25 FTE</span>
+                                <span>50 FTE</span>
+                            </div>
+                        </div>
+
+                        <!-- Slider 2: Uren handwerk -->
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <label for="slider-hours" class="font-heading font-bold text-sm sm:text-base text-slate-900">Handmatig invoerwerk per medewerker</label>
+                                <span id="label-hours" class="font-mono font-bold text-base text-arc-sand bg-amber-50 px-3 py-1 rounded-lg border border-amber-200">8 uur / week</span>
+                            </div>
+                            <input type="range" id="slider-hours" min="2" max="30" value="8" class="custom-slider w-full">
+                            <div class="flex justify-between text-[11px] font-mono text-slate-400 mt-1">
+                                <span>2 uur</span>
+                                <span>15 uur</span>
+                                <span>30 uur</span>
+                            </div>
+                        </div>
+
+                        <!-- Uurtarief Buttons -->
+                        <div>
+                            <span class="block font-heading font-bold text-sm text-slate-900 mb-3">Gemiddelde personeelskost per uur</span>
+                            <div class="flex gap-3">
+                                <button type="button" class="rate-btn flex-1 py-2.5 px-4 rounded-xl border border-slate-200 bg-slate-50 text-xs font-mono font-bold text-slate-600 hover:border-arc-teal transition" data-rate="45">€45 / u</button>
+                                <button type="button" class="rate-btn active flex-1 py-2.5 px-4 rounded-xl border border-teal-500 bg-teal-50 text-xs font-mono font-bold text-arc-teal transition shadow-sm" data-rate="55">€55 / u</button>
+                                <button type="button" class="rate-btn flex-1 py-2.5 px-4 rounded-xl border border-slate-200 bg-slate-50 text-xs font-mono font-bold text-slate-600 hover:border-arc-teal transition" data-rate="75">€75 / u</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Output Stats Display (5 cols) -->
+                    <div class="lg:col-span-5 bg-gradient-to-b from-slate-900 to-slate-950 text-white rounded-3xl p-8 border border-slate-800 text-center flex flex-col justify-between shadow-xl">
+                        <div>
+                            <span class="text-xs font-mono uppercase tracking-widest text-teal-300 block mb-2">Geschatte Jaarlijkse Besparing</span>
+                            <div class="font-display-mega text-4xl sm:text-5xl text-white tracking-tight my-4">
+                                € <span id="calc-euros" class="bg-gradient-to-r from-teal-300 to-emerald-400 bg-clip-text text-transparent">77.000</span>
+                            </div>
+                            <span class="text-xs text-slate-400 font-light block mb-6">op basis van 70% procesefficiëntie</span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 py-4 border-y border-slate-800 my-4">
+                            <div>
+                                <span class="text-[11px] text-slate-400 font-mono block">Urenwinst p/mnd</span>
+                                <span id="calc-hours" class="font-heading font-bold text-lg text-white">121 u</span>
+                            </div>
+                            <div>
+                                <span class="text-[11px] text-slate-400 font-mono block">Focusdagen p/jr</span>
+                                <span id="calc-days" class="font-heading font-bold text-lg text-arc-sand">175 dgn</span>
+                            </div>
+                        </div>
+
+                        <a href="#contact" class="w-full bg-arc-teal text-white py-3.5 rounded-xl font-heading font-bold text-sm hover:bg-arc-teal-hover transition shadow-lg">
+                            Bespreek deze besparing →
                         </a>
                     </div>
-                </div>
 
-                <!-- CRIMESTATION CARD -->
-                <div id="crimestation" class="group bg-white rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-rose-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-                    <div class="bg-white rounded-[23px] p-8 md:p-10 h-full flex flex-col relative z-10">
-                        <div class="flex items-start justify-between mb-8">
-                            <div class="w-16 h-16 rounded-[18px] bg-arc-teal flex items-center justify-center shadow-md">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================================================
+             SECTIE 8: HIGH-VOLTAGE INFINITE MARQUEE TICKER (LOOP LINKS NAAR RECHTS)
+             ====================================================================== -->
+        <div class="marquee-ticker-container py-5 bg-arc-teal text-white overflow-hidden font-heading font-black tracking-wider text-sm sm:text-base uppercase select-none shadow-sm relative">
+            <div class="marquee-ticker-track">
+                <!-- Track Set A -->
+                <div class="flex items-center shrink-0">
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ DIRECT MET DE MAKERS</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ 100% EIGENDOM VAN JE CODE</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ GEEN VENDOR LOCK-IN</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ VASTE ALL-IN PROJECTPRIJS</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ RESULTAAT BINNEN 2 TOT 4 WEKEN</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ EXACT, AFAS, HUBSPOT &amp; MOLLIE</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ DIRECT MET DE MAKERS</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ 100% EIGENDOM VAN JE CODE</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ GEEN VENDOR LOCK-IN</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ VASTE ALL-IN PROJECTPRIJS</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ RESULTAAT BINNEN 2 TOT 4 WEKEN</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ EXACT, AFAS, HUBSPOT &amp; MOLLIE</span>
+                </div>
+                <!-- Track Set B (Identieke set voor 100% naadloze oneindige loop) -->
+                <div class="flex items-center shrink-0">
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ DIRECT MET DE MAKERS</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ 100% EIGENDOM VAN JE CODE</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ GEEN VENDOR LOCK-IN</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ VASTE ALL-IN PROJECTPRIJS</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ RESULTAAT BINNEN 2 TOT 4 WEKEN</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ EXACT, AFAS, HUBSPOT &amp; MOLLIE</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ DIRECT MET DE MAKERS</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ 100% EIGENDOM VAN JE CODE</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ GEEN VENDOR LOCK-IN</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ VASTE ALL-IN PROJECTPRIJS</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ RESULTAAT BINNEN 2 TOT 4 WEKEN</span>
+                    <span class="mx-6 sm:mx-8 flex items-center gap-2">★ EXACT, AFAS, HUBSPOT &amp; MOLLIE</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ======================================================================
+             SECTIE 9: FAQ & CONTACT FORMULIER (FRESH WHITE)
+             ====================================================================== -->
+        <section id="contact" class="py-28 bg-white relative border-t border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                    
+                    <!-- Linkerkolom: FAQ Accordion (6 cols) -->
+                    <div class="lg:col-span-6" id="faq">
+                        <span class="text-arc-teal font-mono font-bold text-xs uppercase tracking-widest block mb-2">Veelgestelde Vragen</span>
+                        <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 tracking-tight mb-8">
+                            Alles wat je vooraf wilt weten.
+                        </h2>
+
+                        <div class="space-y-4">
+                            <!-- Vraag 1 -->
+                            <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden">
+                                <button type="button" class="faq-toggle w-full p-5 text-left flex justify-between items-center text-slate-900 font-heading font-bold text-base hover:text-arc-teal transition">
+                                    <span>Wat levert maatwerksoftware of procesautomatisering concreet op?</span>
+                                    <span class="faq-icon text-xl text-arc-teal transition-transform">+</span>
+                                </button>
+                                <div class="faq-content hidden p-5 pt-0 text-sm text-slate-600 font-light leading-relaxed border-t border-slate-200">
+                                    MKB-bedrijven verliezen gemiddeld 10 tot 25 uur per week aan repeterend overtypen tussen pakketten. Met maatwerk en API-koppelingen haal je menselijke fouten eruit, daalt de administratieve overhead en verdient de investering zich vaak binnen 3 tot 6 maanden terug.
+                                </div>
                             </div>
-                            <span class="text-xs font-semibold uppercase tracking-wider text-red-600 mt-2">Website</span>
-                        </div>
-                        <h3 class="font-heading font-black text-3xl text-gray-900 mb-2 tracking-tight">
-                            CrimeStation
-                        </h3>
-                        <span class="inline-block self-start py-1 px-2.5 rounded-full bg-red-50 text-red-700 border border-red-100 text-xs font-semibold uppercase tracking-wider mb-6">
-                            Klantproject
-                        </span>
-                        <p class="text-gray-500 mb-10 flex-grow text-lg leading-relaxed">
-                            Het platform voor onafhankelijke misdaadjournalistiek, met 7.500 bezoekers per maand. Snel, betrouwbaar en gebouwd om diepgravend werk te ondersteunen.
-                        </p>
-                        <a href="https://www.crimestation.nl" target="_blank"
-                            class="inline-flex items-center justify-center w-full bg-arc-teal hover:bg-arc-teal-hover text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 shadow-md group-hover:shadow-lg gap-2">
-                            Bezoek website
-                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7-7m7-7H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
 
-                <!-- DE WOONWENS MAKELAAR CARD -->
-                <div id="woonwens" class="group bg-white rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-                    <div class="bg-white rounded-[23px] p-8 md:p-10 h-full flex flex-col relative z-10">
-                        <div class="flex items-start justify-between mb-8">
-                            <div class="w-16 h-16 rounded-[18px] bg-arc-teal flex items-center justify-center shadow-md">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                            <!-- Vraag 2 -->
+                            <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden">
+                                <button type="button" class="faq-toggle w-full p-5 text-left flex justify-between items-center text-slate-900 font-heading font-bold text-base hover:text-arc-teal transition">
+                                    <span>Wanneer kies ik voor een API-koppeling en wanneer voor AI-workflows?</span>
+                                    <span class="faq-icon text-xl text-arc-teal transition-transform">+</span>
+                                </button>
+                                <div class="faq-content hidden p-5 pt-0 text-sm text-slate-600 font-light leading-relaxed border-t border-slate-200">
+                                    We zijn pragmatisch: als twee systemen gestructureerde data moeten uitwisselen (zoals bestellingen doorzetten naar Exact Online), is een robuuste API-koppeling de beste en snelste keuze. AI-workflows zetten we in wanneer er ongestructureerde data is (zoals inkomende klantmails, woningdossiers of pdf-facturen) die geïnterpreteerd en geclassificeerd moeten worden.
+                                </div>
                             </div>
-                            <span class="text-xs font-semibold uppercase tracking-wider text-amber-600 mt-2">AI-workflows</span>
+
+                            <!-- Vraag 3 -->
+                            <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden">
+                                <button type="button" class="faq-toggle w-full p-5 text-left flex justify-between items-center text-slate-900 font-heading font-bold text-base hover:text-arc-teal transition">
+                                    <span>Ben ik als opdrachtgever 100% eigenaar van de code en data?</span>
+                                    <span class="faq-icon text-xl text-arc-teal transition-transform">+</span>
+                                </button>
+                                <div class="faq-content hidden p-5 pt-0 text-sm text-slate-600 font-light leading-relaxed border-t border-slate-200">
+                                    Ja. Na volledige oplevering en betaling is alle maatwerkcode, database-structuur en data 100% jouw eigendom. Wij geloven niet in vendor lock-in. Je ontvangt volledige documentatie en code-overdracht.
+                                </div>
+                            </div>
+
+                            <!-- Vraag 4 -->
+                            <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden">
+                                <button type="button" class="faq-toggle w-full p-5 text-left flex justify-between items-center text-slate-900 font-heading font-bold text-base hover:text-arc-teal transition">
+                                    <span>Hoe lang duurt de ontwikkeling van een project?</span>
+                                    <span class="faq-icon text-xl text-arc-teal transition-transform">+</span>
+                                </button>
+                                <div class="faq-content hidden p-5 pt-0 text-sm text-slate-600 font-light leading-relaxed border-t border-slate-200">
+                                    Voor gerichte automatiseringen en AI-workflows leveren we vaak binnen 2 tot 4 weken een werkend systeem op. Complete maatwerkplatformen leveren we gefaseerd op in sprints van 4 tot 8 weken, waarbij je tussentijds al direct functionaliteiten test en gebruikt.
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="font-heading font-black text-3xl text-gray-900 mb-2 tracking-tight">
-                            WoonWens Makelaar
-                        </h3>
-                        <span class="inline-block self-start py-1 px-2.5 rounded-full bg-amber-50 text-amber-700 border border-amber-100 text-xs font-semibold uppercase tracking-wider mb-6">
-                            Klantproject
-                        </span>
-                        <p class="text-gray-500 mb-10 flex-grow text-lg leading-relaxed">
-                            AI-agenten nemen een groot deel van het dagelijkse handwerk over bij dit makelaarskantoor. 2 uur per dag tijdwinst, direct terug te zien in persoonlijk klantcontact.
+                    </div>
+
+                    <!-- Rechterkolom: Live Formspree Contact Formulier (6 cols) -->
+                    <div class="lg:col-span-6 bg-slate-50 border border-slate-200 rounded-[36px] p-8 sm:p-12 shadow-lg">
+                        <span class="text-arc-teal font-mono font-bold text-xs uppercase tracking-widest block mb-2">Direct Contact</span>
+                        <h3 class="font-heading font-bold text-2xl sm:text-3xl text-slate-900 mb-2">Kom een keer praten</h3>
+                        <p class="text-slate-500 text-sm font-light mb-8">
+                            Geen accountmanager. Je zit direct om tafel met Amber, Revie of Cees.
                         </p>
-                        <a href="https://woonwensmakelaar.nl" target="_blank"
-                            class="inline-flex items-center justify-center w-full bg-arc-teal hover:bg-arc-teal-hover text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 shadow-md group-hover:shadow-lg gap-2">
-                            Bezoek website
-                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7-7m7-7H3"></path></svg>
-                        </a>
+
+                        <!-- Formspree Live Form -->
+                        <form id="contact-form" action="https://formspree.io/f/mrenqjqr" method="POST" class="space-y-5">
+                            <div>
+                                <label for="name" class="block text-xs font-mono text-slate-700 uppercase tracking-wider mb-2">Je naam *</label>
+                                <input type="text" id="name" name="name" required placeholder="Bijv. Mark Jansen" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-arc-teal transition shadow-sm">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-xs font-mono text-slate-700 uppercase tracking-wider mb-2">E-mailadres *</label>
+                                <input type="email" id="email" name="email" required placeholder="naam@bedrijf.nl" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-arc-teal transition shadow-sm">
+                            </div>
+
+                            <div>
+                                <label for="phone" class="block text-xs font-mono text-slate-700 uppercase tracking-wider mb-2">Telefoonnummer (optioneel)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="06 12345678" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-arc-teal transition shadow-sm">
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-xs font-mono text-slate-700 uppercase tracking-wider mb-2">Waar loop je tegenaan? *</label>
+                                <textarea id="message" name="message" rows="4" required placeholder="Beschrijf kort je huidige proces of softwarewens..." class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-arc-teal transition shadow-sm"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-arc-teal text-white py-4 rounded-xl font-heading font-bold text-base hover:bg-arc-teal-hover transition shadow-[0_4px_14px_rgba(15,98,106,0.3)] hover:scale-[1.02]">
+                                Verstuur aanvraag →
+                            </button>
+                        </form>
+
+                        <!-- Success Message Box -->
+                        <div id="contact-form-success" class="hidden text-center py-10 bg-teal-50 border border-teal-300 rounded-2xl p-6">
+                            <div class="w-12 h-12 rounded-full bg-teal-100 text-arc-teal flex items-center justify-center mx-auto text-xl mb-4">✓</div>
+                            <h4 class="font-heading font-bold text-xl text-slate-900 mb-2">Bericht ontvangen!</h4>
+                            <p class="text-sm text-slate-600 font-light">We reageren binnen 1 werkdag om samen te sparren over jouw situatie.</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Voordelen Sectie -->
-    <section id="voordelen" class="py-32 bg-white relative border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="font-heading font-black text-4xl md:text-5xl text-arc-blue mb-6 tracking-tight">Waarom kiezen voor ARC?</h2>
-                 <div class="w-24 h-1.5 bg-gradient-to-r from-arc-teal to-arc-sage mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-                <div class="group px-6">
-                    <div class="w-20 h-20 bg-arc-teal rounded-[18px] flex items-center justify-center mx-auto mb-8 shadow-md transform group-hover:rotate-6 transition-transform duration-300">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-2xl text-gray-900 mb-4 min-h-[4rem] md:min-h-[7.5rem]">We zeggen ook wanneer AI niet het antwoord is</h3>
-                    <p class="text-gray-500 leading-relaxed text-lg">Bij WoonWens Makelaar nemen AI-agenten nu 2 uur handwerk per dag over. Maar niet elk probleem los je met AI op. Soms is een koppeling tussen twee systemen genoeg. Dan bouwen we dat.</p>
                 </div>
 
-                <div class="group px-6">
-                    <div class="w-20 h-20 bg-arc-teal rounded-[18px] flex items-center justify-center mx-auto mb-8 shadow-md transform group-hover:-translate-y-2 transition-transform duration-300">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-2xl text-gray-900 mb-4 min-h-[4rem] md:min-h-[7.5rem]">Je praat met wie het bouwt</h3>
-                    <p class="text-gray-500 leading-relaxed text-lg">Geen accountmanager die jouw verhaal doorvertelt. Je legt het één keer uit, aan wie het ook echt bouwt.</p>
-                </div>
-
-                <div class="group px-6">
-                    <div class="w-20 h-20 bg-arc-teal rounded-[18px] flex items-center justify-center mx-auto mb-8 shadow-md transform group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-2xl text-gray-900 mb-4 min-h-[4rem] md:min-h-[7.5rem]">Eigen designer, geen sjablonen</h3>
-                    <p class="text-gray-500 leading-relaxed text-lg">Cees ontwerpt alles wat we opleveren. Kijk naar CrimeStation of ARC Booking: gebouwd om te gebruiken, niet uit een template getrokken.</p>
-                </div>
             </div>
+        </section>
 
-            <div class="mt-16 text-center max-w-2xl mx-auto">
-                <p class="font-heading font-bold text-gray-900 text-lg mb-2">Maatwerk is duur?</p>
-                <p class="text-gray-500 text-lg leading-relaxed">Vaak is niets doen het duurste. Handwerk dat blijft liggen, kost ook geld, alleen zie je dat niet terug op een factuur.</p>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <!-- Contact Sectie -->
-    <section id="contact" class="py-32 bg-white relative border-t border-gray-100">
-        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-heading font-black text-4xl md:text-5xl text-arc-blue mb-6 tracking-tight">Kom een keer praten</h2>
-            <p class="text-xl text-gray-500 max-w-2xl mx-auto font-light mb-16">We beginnen met luisteren.</p>
-
-            <div class="bg-gray-50 rounded-2xl p-8 text-left">
-                <form id="contact-form" action="https://formspree.io/f/mrenqjqr" method="POST" class="flex flex-col gap-4">
-                    <input type="text" name="naam" placeholder="Naam" required
-                        class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal">
-                    <input type="text" name="bedrijf" placeholder="Bedrijf (optioneel)"
-                        class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal">
-                    <input type="email" name="email" placeholder="E-mailadres" required
-                        class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal">
-                    <input type="tel" name="telefoon" placeholder="Telefoonnummer (optioneel)"
-                        class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal">
-                    <textarea name="situatie" placeholder="Waar wil je het over hebben?" required rows="3"
-                        class="rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:border-arc-teal"></textarea>
-                    <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
-                    <button type="submit"
-                        class="inline-flex items-center justify-center bg-arc-teal text-white px-6 py-4 rounded-xl font-bold hover:bg-arc-teal-hover transition-all duration-300 shadow-md">
-                        Versturen
-                    </button>
-                    <p class="text-xs text-gray-600 mt-2">Door dit formulier te versturen ga je akkoord met onze <a href="privacy.html" class="underline text-gray-600 hover:text-arc-teal">privacyverklaring</a>.</p>
-                </form>
-                <p id="contact-form-success" class="hidden text-arc-teal font-semibold mt-4">Bedankt, we nemen binnen 1 werkdag contact op.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-[#050B14] py-20 text-white relative overflow-hidden">
-        <!-- Abstract dark background shapes -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-arc-teal/5 rounded-full blur-[100px]"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-arc-sage/5 rounded-full blur-[100px]"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-white/10 pb-16 mb-12">
+    <!-- ==========================================================================
+         FRESH WHITE FOOTER: CLEAN, STRICT 44PX LOGO, MET JURIDISCHE DATA
+         ========================================================================== -->
+    <footer class="bg-white border-t border-slate-200 py-16 px-6 sm:px-12">
+        <div class="max-w-7xl mx-auto w-full">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-100 pb-12">
                 <div>
-                    <div class="flex items-center gap-4 mb-6">
-                        <!-- PNG Logo in Footer -->
-                        <img src="logo.png" alt="ARC Flow Logo" class="w-12 h-12 rounded-[14px] shadow-xl border border-white/10 object-contain">
-                        <span class="font-heading font-bold text-2xl tracking-tight text-white">ARC<span class="font-light text-gray-400">&nbsp;Flow</span></span>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="logo.png" alt="ARC Flow Logo" class="brand-logo-img rounded-xl shadow-sm border border-slate-200" style="width: 44px; height: 44px; max-width: 44px; max-height: 44px; object-fit: contain;">
+                        <span class="font-heading font-black text-2xl tracking-tight text-slate-900">ARC<span class="font-light text-slate-500">&nbsp;Flow</span></span>
                     </div>
-                    <p class="text-gray-400 text-lg max-w-sm font-light">Maatwerksoftware, websites en AI-workflows voor het MKB.</p>
+                    <p class="text-slate-500 text-sm max-w-sm font-light leading-relaxed mb-4">
+                        Maatwerksoftware, websites en AI-workflows voor het Nederlandse MKB. Gebouwd door vakmensen.
+                    </p>
+                    <p class="text-xs text-slate-400 font-mono">KvK: 42102815 • Wilgenlaan 59, 1394 KG Nederhorst den Berg</p>
                 </div>
 
-                <div class="flex flex-col md:items-end justify-center">
-                    <h4 class="font-heading font-bold text-xl mb-6">Direct contact</h4>
-                    <a href="mailto:info@arc-flow.nl" class="inline-flex items-center gap-3 text-gray-300 hover:text-arc-teal transition-colors duration-300 text-lg mb-4 group">
-                        <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-arc-teal/10 transition-colors">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <div class="flex flex-col md:items-end justify-center space-y-3">
+                    <h4 class="font-heading font-bold text-lg text-slate-900 mb-2">Direct contact</h4>
+                    <a href="mailto:info@arc-flow.nl" class="inline-flex items-center gap-3 text-slate-600 hover:text-arc-teal transition-colors text-sm">
+                        <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-arc-teal">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                         </div>
                         info@arc-flow.nl
                     </a>
-                    <a href="https://arc-booking.nl" target="_blank" class="inline-flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 text-lg group">
-                        <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
+                    <a href="https://arc-booking.nl" target="_blank" rel="noopener" class="inline-flex items-center gap-3 text-slate-600 hover:text-slate-900 transition-colors text-sm">
+                        <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
                         </div>
-                        Inloggen ARC Booking
+                        Inloggen ARC Booking Platform
                     </a>
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 font-light">
+            <!-- Footer Bottom Links -->
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 pt-6">
                 <p>&copy; 2026 ARC Flow V.O.F. Alle rechten voorbehouden.</p>
-                <div class="flex gap-6 mt-6 md:mt-0">
-                    <a href="voorwaarden.html" class="hover:text-arc-teal transition-colors duration-300">Algemene Voorwaarden</a>
-                    <a href="privacy.html" class="hover:text-arc-teal transition-colors duration-300">Privacyverklaring</a>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="voorwaarden.html" class="hover:text-arc-teal transition-colors">Algemene Voorwaarden</a>
+                    <a href="privacy.html" class="hover:text-arc-teal transition-colors">Privacyverklaring</a>
                 </div>
             </div>
+
         </div>
     </footer>
 
-    <script>
-        // Boogmotief: teken de curve zodra de Methode-sectie in beeld scrolt
-        const arcMotif = document.getElementById('arc-motif');
-        const arcMotifPath = document.getElementById('arc-motif-path');
-        if (arcMotif && arcMotifPath && 'IntersectionObserver' in window) {
-            const length = arcMotifPath.getTotalLength();
-            arcMotifPath.style.strokeDasharray = length;
-            arcMotifPath.style.strokeDashoffset = length;
-            const arcObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        arcMotif.style.opacity = '0.12';
-                        arcMotifPath.style.transition = 'stroke-dashoffset 1.8s ease-out';
-                        arcMotifPath.style.strokeDashoffset = '0';
-                        arcObserver.disconnect();
-                    }
-                });
-            }, { threshold: 0.3 });
-            arcObserver.observe(document.getElementById('werkwijze'));
-        }
-
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', async function (e) {
-                e.preventDefault();
-                const data = new FormData(contactForm);
-                try {
-                    const response = await fetch(contactForm.action, {
-                        method: 'POST',
-                        body: data,
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    if (response.ok) {
-                        contactForm.style.display = 'none';
-                        document.getElementById('contact-form-success').classList.remove('hidden');
-                    } else {
-                        alert('Er ging iets mis bij het versturen. Probeer het later opnieuw of mail naar info@arc-flow.nl.');
-                    }
-                } catch (error) {
-                    alert('Er ging iets mis bij het versturen. Probeer het later opnieuw of mail naar info@arc-flow.nl.');
-                }
-            });
-        }
-    </script>
-
+    <!-- ArcMotionEngine (Parallax, Mouse Depth, Sticky Stacking & Interactive Modules) -->
+    <script src="arc-motion.js?v=3"></script>
 </body>
 </html>
